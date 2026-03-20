@@ -108,8 +108,9 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <p className="text-off-white/20 font-sans text-[10px] uppercase tracking-widest">
-            © 2026 Rota Ativa Mediação Imobiliária. Todos os direitos reservados.
+          <p className="text-off-white/40 font-sans text-xs uppercase tracking-widest text-center">
+            © 2026 Rota Ativa Mediação Imobiliária. <br />
+            Todos os direitos reservados.
           </p>
         </div>
       </footer>
