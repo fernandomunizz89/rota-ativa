@@ -13,29 +13,58 @@ export const ContactForm = () => {
   };
 
   return (
-    <section id="contacto-privado" className="py-32 bg-forest text-off-white">
-      <div className="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row gap-20">
-        <div className="flex-1">
-          <span className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block">
+    <section id="contacto-privado" className="py-24 lg:py-48 bg-forest text-off-white relative overflow-hidden">
+      {/* Decorative background element */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-forest lg:h-full lg:w-1/2" />
+      
+      <div className="container mx-auto px-6 max-w-6xl relative flex flex-col lg:flex-row gap-16 lg:gap-24 items-center lg:items-start text-center lg:text-left">
+        <div className="flex-1 w-full max-w-2xl">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block"
+          >
             Contacto Privado
-          </span>
-          <h2 className="font-serif text-5xl md:text-7xl mb-8 leading-tight">
-            Inicie a Sua Joranada <br />
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="font-serif text-4xl md:text-5xl lg:text-7xl mb-8 leading-tight"
+          >
+            Inicie a Sua Jornada <br />
             <span className="text-gold">com Exclusividade.</span>
-          </h2>
-          <p className="text-off-white/70 font-sans text-lg lg:text-xl max-w-md leading-relaxed">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-off-white/70 font-sans text-lg lg:text-xl max-w-md mx-auto lg:mx-0 leading-relaxed"
+          >
             A nossa equipa de consultores especializados está pronta para oferecer um serviço personalizado e discreto.
-          </p>
+          </motion.p>
 
-          <div className="mt-12 space-y-4 font-sans">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mt-12 space-y-4 font-sans block"
+          >
             <p className="text-gold text-sm tracking-widest uppercase">Office / Porto, Portugal</p>
-            <p className="text-2xl font-light">Av. da Liberdade, 123</p>
-            <p className="text-xl">+351 253 123 456</p>
-            <p className="text-xl">concierge@rotaativa.pt</p>
-          </div>
+            <p className="text-xl md:text-2xl font-light">Av. da Liberdade, 123</p>
+            <div className="flex flex-col md:flex-row md:gap-8 justify-center lg:justify-start items-center">
+              <p className="text-lg md:text-xl">+351 253 123 456</p>
+              <p className="text-lg md:text-xl">concierge@rotaativa.pt</p>
+            </div>
+          </motion.div>
         </div>
 
-        <div className="flex-1 bg-[#0a261d] p-12 shadow-2xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex-1 w-full max-w-xl bg-deep-black p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-gold/10 relative z-10"
+        >
           <form onSubmit={handleSubmit} className="space-y-12">
             {[
               { id: 'name', label: 'Nome Completo', type: 'text' },
@@ -84,7 +113,7 @@ export const ContactForm = () => {
               {status === 'idle' ? 'Solicitar Consultoria Privada' : status === 'sending' ? 'A enviar...' : 'Mensagem Enviada'}
             </motion.button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
