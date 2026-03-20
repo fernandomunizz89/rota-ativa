@@ -14,7 +14,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Rota Ativa | Mediação Imobiliária",
-  description: "Descubra a excelência em mediação imobiliária de  com a Rota Ativa. Propriedades exclusivas, branding editorial e atendimento de elite.",
+  description: "Descubra a excelência em mediação imobiliária com a Rota Ativa. Propriedades exclusivas, branding editorial e atendimento de elite.",
 };
 
 export default function RootLayout({

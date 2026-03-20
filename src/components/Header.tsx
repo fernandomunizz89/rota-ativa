@@ -162,7 +162,7 @@ export const Header = () => {
               className="absolute bottom-12 flex flex-col items-center gap-2 cursor-pointer no-underline group"
             >
               <Logo className="w-12 h-12 opacity-30 transition-opacity duration-300 group-hover:opacity-100" />
-              <p className="text-gold/30 font-sans text-[10px] tracking-[0.4em] uppercase group-hover:text-gold transition-colors duration-300">ROTA ATIVA • LUXURY</p>
+              <p className="text-gold/30 font-sans text-[10px] tracking-[0.4em] uppercase group-hover:text-gold transition-colors duration-300">ROTA ATIVA</p>
             </a>
           </motion.div>
         )}

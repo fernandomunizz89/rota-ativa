@@ -42,8 +42,8 @@ h1, h2, h3, h4, .font-serif {
   font-family: var(--font-serif);
 }
 
-/* Custom Luxury Utilities */
-.luxury-gradient {
+/* Custom Brand Utilities */
+.brand-gradient {
   background: linear-gradient(135deg, #123D2F 0%, #0a261d 100%);
 }
 
