@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export const Hero = () => {
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background Image / Video Fallback */}
       <div className="absolute inset-0 z-0">
         <motion.div

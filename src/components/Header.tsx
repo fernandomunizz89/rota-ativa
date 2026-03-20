@@ -74,13 +74,17 @@ export const Header = () => {
           }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Logo className="w-16 h-16" />
+          <a 
+            href="#home" 
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-4 cursor-pointer no-underline group"
+          >
+            <Logo className="w-16 h-16 transition-transform duration-300 group-hover:scale-110" />
             <div className="hidden md:block">
               <h1 className="text-gold font-serif text-xl tracking-widest leading-none">ROTA ATIVA</h1>
               <p className="text-gold/80 font-sans text-[10px] tracking-[0.3em] uppercase">Mediação Imobiliária</p>
             </div>
-          </div>
+          </a>
 
           <nav className="hidden md:flex items-center gap-12">
             {menuItems.map((item) => (
@@ -152,13 +156,14 @@ export const Header = () => {
               </motion.button>
             </nav>
 
-            <motion.div
-              variants={itemVariants}
-              className="absolute bottom-12 flex flex-col items-center gap-2"
+            <a 
+              href="#home"
+              onClick={() => setIsOpen(false)}
+              className="absolute bottom-12 flex flex-col items-center gap-2 cursor-pointer no-underline group"
             >
-              <Logo className="w-12 h-12 opacity-30" />
-              <p className="text-gold/30 font-sans text-[10px] tracking-[0.4em] uppercase">ROTA ATIVA • LUXURY</p>
-            </motion.div>
+              <Logo className="w-12 h-12 opacity-30 transition-opacity duration-300 group-hover:opacity-100" />
+              <p className="text-gold/30 font-sans text-[10px] tracking-[0.4em] uppercase group-hover:text-gold transition-colors duration-300">ROTA ATIVA • LUXURY</p>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
