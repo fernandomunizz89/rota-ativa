@@ -9,14 +9,14 @@ const actions = [
     icon: <MessageSquare size={18} />,
     label: 'Conversa Exclusiva',
     subLabel: 'WhatsApp Privado',
-    href: 'https://wa.me/351253123456',
+    href: 'https://wa.me/351936765705',
     type: 'link'
   },
   {
     icon: <Phone size={18} />,
-    label: '+351 253 123 456',
+    label: '+351 936 765 705',
     subLabel: 'Contacto Telefónico',
-    href: 'tel:+351253123456',
+    href: 'tel:+351936765705',
     type: 'link'
   },
   {

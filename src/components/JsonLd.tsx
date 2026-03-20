@@ -14,11 +14,10 @@ export default function JsonLd() {
       "addressCountry": "PT",
     },
     "areaServed": "Portugal",
-    "telephone": "+351 900 000 000",
+    "telephone": "+351 936 765 705",
     "priceRange": "$$$",
     "sameAs": [
-      "https://www.instagram.com/rotaativa.pt/",
-      "https://www.youtube.com/"
+      "https://www.instagram.com/rotaativa.pt/"
     ]
   };
 

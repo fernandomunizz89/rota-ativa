@@ -96,8 +96,6 @@ export default function Home() {
           <div className="flex gap-10 mb-12">
             {[
               { name: 'Instagram', href: 'https://www.instagram.com/rotaativa.pt/' },
-              { name: 'Facebook', href: 'https://www.instagram.com/rotaativa.pt/' },
-              { name: 'YouTube', href: 'https://www.youtube.com/' }
             ].map(social => (
               <a
                 key={social.name}
