@@ -17,7 +17,7 @@ export const Hero = () => {
         >
           <Image
             src="/images/hero.png"
-            alt="Rota Ativa - Mediação Imobiliária de Luxo e Curadoria de Imóveis em Portugal"
+            alt="Rota Ativa - Mediação Imobiliária personalizada e Curadoria de Imóveis em Portugal"
             fill
             priority
             className="object-cover brightness-50"

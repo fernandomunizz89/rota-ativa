@@ -30,9 +30,9 @@ export default function Home() {
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div className="relative">
             <div className="aspect-[4/5] bg-deep-black overflow-hidden shadow-2xl relative">
-              <Image 
-                src="/images/hero.png" 
-                alt="Rota Ativa - Excelência Imobiliária e Mediação de Luxo em Portugal"
+              <Image
+                src="/images/hero.png"
+                alt="Rota Ativa - Excelência Imobiliária e Mediação personalizada em Portugal"
                 fill
                 className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
                 priority
@@ -99,8 +99,8 @@ export default function Home() {
               { name: 'Facebook', href: 'https://www.instagram.com/rotaativa.pt/' },
               { name: 'YouTube', href: 'https://www.youtube.com/' }
             ].map(social => (
-              <a 
-                key={social.name} 
+              <a
+                key={social.name}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
