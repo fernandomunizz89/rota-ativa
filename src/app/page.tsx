@@ -9,6 +9,7 @@ import { ContactForm } from '@/components/ContactForm';
 import { FloatingActionHub } from '@/components/FloatingActionHub';
 import { AboutUs } from '@/components/AboutUs';
 import { PropertyModal } from '@/components/PropertyModal';
+import { Logo } from '@/components/Logo';
 
 export default function Home() {
   const [selectedProperty, setSelectedProperty] = useState<{ title: string, category: string, image: string, location: string, area: string } | null>(null);
@@ -86,13 +87,7 @@ export default function Home() {
 
       <footer className="bg-deep-black py-20 border-t border-gold/10">
         <div className="container mx-auto px-6 flex flex-col items-center">
-          <div className="w-24 h-24 mb-6">
-            {/* Logo Placeholder */}
-            <div className="w-full h-full border border-gold/20 rounded-full flex items-center justify-center">
-              <span className="text-gold font-serif text-2xl">RA</span>
-            </div>
-          </div>
-          <h2 className="text-gold font-serif text-3xl tracking-widest mb-10">ROTA ATIVA</h2>
+          <Logo className="w-48 h-48 mb-8" />
           <div className="flex gap-10 mb-12">
             {[
               { name: 'Instagram', href: 'https://www.instagram.com/rotaativa.pt/' },

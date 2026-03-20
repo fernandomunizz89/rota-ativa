@@ -74,12 +74,12 @@ export const Header = () => {
           }`}
       >
         <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
-          <a 
-            href="#home" 
+          <a
+            href="#home"
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-4 cursor-pointer no-underline group"
           >
-            <Logo className="w-16 h-16 transition-transform duration-300 group-hover:scale-110" />
+            <Logo className="w-24 h-24 transition-transform duration-300 group-hover:scale-105" />
             <div className="block">
               <h1 className="text-gold font-serif text-xl tracking-widest leading-none">ROTA ATIVA</h1>
               <p className="text-gold/80 font-sans text-[10px] tracking-[0.3em] uppercase">Mediação Imobiliária</p>
@@ -122,7 +122,7 @@ export const Header = () => {
               onClick={() => setIsOpen(false)}
               className="fixed inset-0 bg-deep-black/60 backdrop-blur-sm z-[55] lg:hidden"
             />
-            
+
             <motion.div
               initial="closed"
               animate="opened"
@@ -155,7 +155,7 @@ export const Header = () => {
                 </motion.button>
               </nav>
 
-              <a 
+              <a
                 href="#home"
                 onClick={() => setIsOpen(false)}
                 className="absolute bottom-12 flex flex-col items-center gap-2 cursor-pointer no-underline group"

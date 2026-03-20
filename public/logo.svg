@@ -1,0 +1,52 @@
+<svg
+  viewBox="0 0 200 200"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Globe Grid -->
+  <!-- Main Circle -->
+  <circle cx="100" cy="100" r="45" stroke="#C19A5B" strokeWidth="1.5" />
+  
+  <!-- Axis and Equator -->
+  <line x1="100" y1="45" x2="100" y2="155" stroke="#C19A5B" strokeWidth="1.5" />
+  <line x1="55" y1="100" x2="145" y2="100" stroke="#C19A5B" strokeWidth="1.2" />
+  
+  <!-- Meridians (Ellipses) -->
+  <ellipse cx="100" cy="100" rx="15" ry="45" stroke="#C19A5B" strokeWidth="1.2" />
+  <ellipse cx="100" cy="100" rx="30" ry="45" stroke="#C19A5B" strokeWidth="1.2" />
+  
+  <!-- Latitudes -->
+  <path d="M 65 75 Q 100 82 135 75" stroke="#C19A5B" strokeWidth="1" />
+  <path d="M 65 125 Q 100 118 135 125" stroke="#C19A5B" strokeWidth="1" />
+
+  <!-- Side Brackets -->
+  <path d="M 35 85 Q 30 100 35 115" stroke="#C19A5B" strokeWidth="1.5" strokeLinecap="round" />
+  <path d="M 165 85 Q 170 100 165 115" stroke="#C19A5B" strokeWidth="1.5" strokeLinecap="round" />
+
+  <!-- Stars (Sparkles) - Hollow/Stroke-only as per reference image -->
+  <!-- 1. Top Left (Large, Outside) -->
+  <path d="M 58 40 L 61 49 L 70 52 L 61 55 L 58 64 L 55 55 L 46 52 L 55 49 Z" stroke="#C19A5B" strokeWidth="1.2" fill="none" />
+  <!-- 2. Top Right (Medium, Outside) -->
+  <path d="M 148 60 L 150 66 L 156 68 L 150 70 L 148 76 L 146 70 L 140 68 L 146 66 Z" stroke="#C19A5B" strokeWidth="1.2" fill="none" />
+  <!-- 3. Top Right (Medium, Inside) -->
+  <path d="M 115 73 L 116.75 78.25 L 122 80 L 116.75 81.75 L 115 87 L 113.25 81.75 L 108 80 L 113.25 78.25 Z" stroke="#C19A5B" strokeWidth="1" fill="none" />
+  <!-- 4. Bottom Right (Medium, Inside) -->
+  <path d="M 125 118 L 126.75 123.25 L 132 125 L 126.75 126.75 L 125 132 L 123.25 126.75 L 118 125 L 123.25 123.25 Z" stroke="#C19A5B" strokeWidth="1" fill="none" />
+  <!-- 5. Bottom Left (Small, Outside) -->
+  <path d="M 48 126 L 49.5 130.5 L 54 132 L 49.5 133.5 L 48 138 L 46.5 133.5 L 42 132 L 46.5 130.5 Z" stroke="#C19A5B" strokeWidth="1.2" fill="none" />
+
+  <!-- Curved Text Paths -->
+  <path id="curve" d="M 20,100 A 80,80 0 1,1 180,100" fill="transparent" />
+  <text font-family="serif" font-size="16" fill="#C19A5B" letter-spacing="0.25em" style="text-transform: uppercase;">
+    <textPath href="#curve" startOffset="50%" text-anchor="middle">
+      ROTA ATIVA
+    </textPath>
+  </text>
+  
+  <path id="curve-bottom" d="M 20,100 A 80,80 0 1,0 180,100" fill="transparent" />
+  <text font-family="sans-serif" font-size="9" fill="#C19A5B" letter-spacing="0.15em" font-weight="500" style="text-transform: uppercase;">
+    <textPath href="#curve-bottom" startOffset="50%" text-anchor="middle">
+      MEDIAÇÃO IMOBILIÁRIA
+    </textPath>
+  </text>
+</svg>
