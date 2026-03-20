@@ -9,7 +9,7 @@ const actions = [
     icon: <MessageSquare size={18} />,
     label: 'Conversa Exclusiva',
     subLabel: 'WhatsApp Privado',
-    href: 'https://wa.me/351936765705',
+    href: 'https://wa.me/351936765705?text=Olá!%0A%0AEncontrei%20o%20vosso%20site%20e%20tenho%20interesse%20em%20perceber%20melhor%20como%20trabalham%20na%20mediação%20imobiliária.%20Podemos%20falar?',
     type: 'link'
   },
   {
