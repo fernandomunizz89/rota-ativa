@@ -13,6 +13,11 @@
 :root {
   --background: #F9F9F5;
   --foreground: #123D2F;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-snap-type: y proximity;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +31,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+section {
+  scroll-margin-top: 90px;
+  scroll-snap-align: start;
 }
 
 h1, h2, h3, h4, .font-serif {
