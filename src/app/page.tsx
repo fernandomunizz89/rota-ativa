@@ -1,65 +1,121 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from 'react';
+import { Header } from '@/components/Header';
+import { Hero } from '@/components/Hero';
+import { Curadoria } from '@/components/Curadoria';
+import { ContactForm } from '@/components/ContactForm';
+import { FloatingActionHub } from '@/components/FloatingActionHub';
+import { AboutUs } from '@/components/AboutUs';
+import { PropertyModal } from '@/components/PropertyModal';
 
 export default function Home() {
+  const [selectedProperty, setSelectedProperty] = useState<{ title: string, category: string, image: string, location: string, area: string } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenProperty = (property: { title: string, category: string, image: string, location: string, area: string }) => {
+    setSelectedProperty(property);
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="relative min-h-screen bg-off-white selection:bg-gold selection:text-forest overflow-x-hidden">
+      <Header />
+
+      <Hero />
+
+      <section id="a-marca" className="py-32 bg-forest text-off-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 blur-[120px] rounded-full" />
+        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div className="relative">
+            <div className="aspect-[4/5] bg-deep-black overflow-hidden shadow-2xl">
+              <img src="/images/hero.png" className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" />
+            </div>
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 border border-gold/30 hidden md:block" />
+          </div>
+
+          <div>
+            <span className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block">A Nossa Identidade</span>
+            <h2 className="font-serif text-5xl md:text-7xl mb-10 leading-tight">
+              Excelência <br />
+              <span className="text-gold">Imobiliária.</span>
+            </h2>
+            <div className="space-y-6 text-off-white/70 font-sans text-lg leading-relaxed max-w-xl">
+              <p>
+                A Rota Ativa nasceu da necessidade de elevar o padrão da mediação imobiliária em Portugal. Não somos apenas uma agência; somos curadores de estilo de vida.
+              </p>
+              <p>
+                Nosso diferencial está no atendimento personalizado, pensado para entender e atender exatamente o que cada cliente precisa, sempre com discrição e uma sólida rede de contactos.
+              </p>
+              <p className="font-serif italic text-gold text-2xl pt-6">
+                "Onde a exclusividade encontra a sua rota."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <AboutUs />
+
+      {/* Wrapping Curadoria to handle clicks */}
+      <div
+        onClick={(e) => {
+          const card = (e.target as HTMLElement).closest('[data-property]');
+          if (card) {
+            const title = card.getAttribute('data-title')!;
+            const category = card.getAttribute('data-category')!;
+            const image = card.getAttribute('data-image')!;
+            const location = card.getAttribute('data-location')!;
+            const area = card.getAttribute('data-area')!;
+            handleOpenProperty({ title, category, image, location, area });
+          }
+        }}
+        className="cursor-pointer"
+      >
+        <Curadoria />
+      </div>
+
+      <ContactForm />
+
+      <footer className="bg-deep-black py-20 border-t border-gold/10">
+        <div className="container mx-auto px-6 flex flex-col items-center">
+          <div className="w-24 h-24 mb-6">
+            {/* Logo Placeholder */}
+            <div className="w-full h-full border border-gold/20 rounded-full flex items-center justify-center">
+              <span className="text-gold font-serif text-2xl">RA</span>
+            </div>
+          </div>
+          <h2 className="text-gold font-serif text-3xl tracking-widest mb-10">ROTA ATIVA</h2>
+          <div className="flex gap-10 mb-12">
+            {[
+              { name: 'Instagram', href: 'https://www.instagram.com/rotaativa.pt/' },
+              { name: 'Facebook', href: 'https://www.instagram.com/rotaativa.pt/' },
+              { name: 'YouTube', href: 'https://www.youtube.com/' }
+            ].map(social => (
+              <a 
+                key={social.name} 
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-off-white/40 hover:text-gold transition-colors font-sans text-xs uppercase tracking-widest"
+              >
+                {social.name}
+              </a>
+            ))}
+          </div>
+          <p className="text-off-white/20 font-sans text-[10px] uppercase tracking-widest">
+            © 2026 Rota Ativa Mediação Imobiliária. Todos os direitos reservados.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </footer>
+
+      <FloatingActionHub />
+
+      <PropertyModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        property={selectedProperty}
+      />
+    </main>
   );
 }

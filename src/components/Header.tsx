@@ -1,0 +1,167 @@
+"use client";
+
+import React, { useState, useEffect } from 'react';
+import { Logo } from './Logo';
+import { motion, AnimatePresence } from 'framer-motion';
+
+export const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Prevent scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  const menuItems = [
+    { name: 'A Marca', href: '#a-marca' },
+    { name: 'Sobre Nós', href: '#sobre-nos' },
+    { name: 'A Curadoria', href: '#a-curadoria' },
+    { name: 'Contacto Privado', href: '#contacto-privado' },
+  ];
+
+  const menuVariants = {
+    closed: {
+      x: "100%",
+      opacity: 0,
+      transition: {
+        type: "spring" as const,
+        stiffness: 400,
+        damping: 40,
+        staggerChildren: 0.05,
+        staggerDirection: -1
+      }
+    },
+    opened: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring" as const,
+        stiffness: 400,
+        damping: 40,
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    closed: { opacity: 0, x: 20 },
+    opened: { opacity: 1, x: 0 }
+  };
+
+  return (
+    <>
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isOpen ? 'bg-forest/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
+          }`}
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Logo className="w-16 h-16" />
+            <div className="hidden md:block">
+              <h1 className="text-gold font-serif text-xl tracking-widest leading-none">ROTA ATIVA</h1>
+              <p className="text-gold/80 font-sans text-[10px] tracking-[0.3em] uppercase">Mediação Imobiliária</p>
+            </div>
+          </div>
+
+          <nav className="hidden md:flex items-center gap-12">
+            {menuItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-off-white hover:text-gold transition-colors font-sans text-sm uppercase tracking-widest"
+              >
+                {item.name}
+              </a>
+            ))}
+          </nav>
+
+          <button
+            className="md:hidden text-gold z-[70] relative w-10 h-10 flex items-center justify-center focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation menu"
+          >
+            <div className="relative w-8 h-6">
+              <motion.span
+                animate={isOpen ? { rotate: 45, y: 11, backgroundColor: "#C19A5B" } : { rotate: 0, y: 0, backgroundColor: "#C19A5B" }}
+                className="absolute top-0 left-0 w-full h-[1.5px] block transform origin-center"
+              />
+              <motion.span
+                animate={isOpen ? { opacity: 0, x: -20 } : { opacity: 1, x: 0, backgroundColor: "#C19A5B" }}
+                className="absolute top-[11px] left-0 w-full h-[1.5px] block"
+              />
+              <motion.span
+                animate={isOpen ? { rotate: -45, y: -11, backgroundColor: "#C19A5B" } : { rotate: 0, y: 0, backgroundColor: "#C19A5B" }}
+                className="absolute bottom-0 left-0 w-full h-[1.5px] block transform origin-center"
+              />
+            </div>
+          </button>
+        </div>
+      </motion.header>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial="closed"
+            animate="opened"
+            exit="closed"
+            variants={menuVariants}
+            className="fixed inset-0 z-[60] md:hidden bg-forest flex flex-col items-center justify-center overflow-hidden"
+          >
+            {/* Backdrop Blur effect layer */}
+            <div className="absolute inset-0 bg-forest/40 backdrop-blur-xl -z-10" />
+
+            <nav className="flex flex-col items-center gap-10 mt-10">
+              {menuItems.map((item) => (
+                <motion.a
+                  key={item.name}
+                  variants={itemVariants}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-gold font-serif text-5xl hover:opacity-70 transition-all tracking-tight"
+                >
+                  {item.name}
+                </motion.a>
+              ))}
+
+              <motion.button
+                variants={itemVariants}
+                className="mt-10 px-10 py-5 border border-gold/50 text-gold font-serif text-2xl hover:bg-gold hover:text-forest transition-all rounded-sm tracking-wide"
+                onClick={() => setIsOpen(false)}
+              >
+                Agendamento
+              </motion.button>
+            </nav>
+
+            <motion.div
+              variants={itemVariants}
+              className="absolute bottom-12 flex flex-col items-center gap-2"
+            >
+              <Logo className="w-12 h-12 opacity-30" />
+              <p className="text-gold/30 font-sans text-[10px] tracking-[0.4em] uppercase">ROTA ATIVA • LUXURY</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
