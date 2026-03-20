@@ -73,7 +73,7 @@ export const Header = () => {
         className={`fixed top-0 left-0 w-full z-[80] transition-all duration-500 ${isScrolled || isOpen ? 'bg-forest/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
           }`}
       >
-        <div className="container mx-auto px-6 flex items-center justify-between">
+        <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
           <a 
             href="#home" 
             onClick={() => setIsOpen(false)}
@@ -86,7 +86,7 @@ export const Header = () => {
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-12">
+          <nav className="hidden lg:flex items-center gap-12">
             {menuItems.map((item) => (
               <a
                 key={item.name}
@@ -99,7 +99,7 @@ export const Header = () => {
           </nav>
 
           <button
-            className={`flex md:hidden z-[70] relative items-center justify-center hamburger hamburger--spin ${isOpen ? 'is-active' : ''}`}
+            className={`flex lg:hidden z-[70] relative items-center justify-center hamburger hamburger--spin ${isOpen ? 'is-active' : ''}`}
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-label="Abrir/Fechar Menu"
@@ -113,47 +113,58 @@ export const Header = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial="closed"
-            animate="opened"
-            exit="closed"
-            variants={menuVariants}
-            className="fixed inset-0 z-[60] md:hidden bg-forest flex flex-col items-center justify-center overflow-hidden"
-          >
-            {/* Backdrop Blur effect layer */}
-            <div className="absolute inset-0 bg-forest/40 backdrop-blur-xl -z-10" />
-
-            <nav className="flex flex-col items-center gap-10 mt-10">
-              {menuItems.map((item) => (
-                <motion.a
-                  key={item.name}
-                  variants={itemVariants}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-gold font-serif text-5xl hover:opacity-70 transition-all tracking-tight"
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-
-              <motion.button
-                variants={itemVariants}
-                className="mt-10 px-10 py-5 border border-gold/50 text-gold font-serif text-2xl hover:bg-gold hover:text-forest transition-all rounded-sm tracking-wide"
-                onClick={() => setIsOpen(false)}
-              >
-                Agendamento
-              </motion.button>
-            </nav>
-
-            <a 
-              href="#home"
+          <>
+            {/* Backdrop for closing the menu */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="absolute bottom-12 flex flex-col items-center gap-2 cursor-pointer no-underline group"
+              className="fixed inset-0 bg-deep-black/60 backdrop-blur-sm z-[55] lg:hidden"
+            />
+            
+            <motion.div
+              initial="closed"
+              animate="opened"
+              exit="closed"
+              variants={menuVariants}
+              className="fixed top-0 right-0 h-full z-[60] w-full md:w-[450px] lg:hidden bg-forest/80 backdrop-blur-2xl flex flex-col items-center justify-center overflow-hidden shadow-2xl border-l border-gold/10"
             >
-              <Logo className="w-12 h-12 opacity-30 transition-opacity duration-300 group-hover:opacity-100" />
-              <p className="text-gold/30 font-sans text-[10px] tracking-[0.4em] uppercase group-hover:text-gold transition-colors duration-300">ROTA ATIVA</p>
-            </a>
-          </motion.div>
+              {/* Backdrop Blur effect layer */}
+              <div className="absolute inset-0 bg-forest/20 -z-10" />
+
+              <nav className="flex flex-col items-center gap-10 mt-10">
+                {menuItems.map((item) => (
+                  <motion.a
+                    key={item.name}
+                    variants={itemVariants}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-gold font-serif text-5xl hover:opacity-70 transition-all tracking-tight"
+                  >
+                    {item.name}
+                  </motion.a>
+                ))}
+
+                <motion.button
+                  variants={itemVariants}
+                  className="mt-10 px-10 py-5 border border-gold/50 text-gold font-serif text-2xl hover:bg-gold hover:text-forest transition-all rounded-sm tracking-wide"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Agendamento
+                </motion.button>
+              </nav>
+
+              <a 
+                href="#home"
+                onClick={() => setIsOpen(false)}
+                className="absolute bottom-12 flex flex-col items-center gap-2 cursor-pointer no-underline group"
+              >
+                <Logo className="w-12 h-12 opacity-30 transition-opacity duration-300 group-hover:opacity-100" />
+                <p className="text-gold/30 font-sans text-[10px] tracking-[0.4em] uppercase group-hover:text-gold transition-colors duration-300">ROTA ATIVA</p>
+              </a>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
