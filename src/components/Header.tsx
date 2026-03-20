@@ -70,7 +70,7 @@ export const Header = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isOpen ? 'bg-forest/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
+        className={`fixed top-0 left-0 w-full z-[80] transition-all duration-500 ${isScrolled || isOpen ? 'bg-forest/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
           }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
@@ -80,7 +80,7 @@ export const Header = () => {
             className="flex items-center gap-4 cursor-pointer no-underline group"
           >
             <Logo className="w-16 h-16 transition-transform duration-300 group-hover:scale-110" />
-            <div className="hidden md:block">
+            <div className="block">
               <h1 className="text-gold font-serif text-xl tracking-widest leading-none">ROTA ATIVA</h1>
               <p className="text-gold/80 font-sans text-[10px] tracking-[0.3em] uppercase">Mediação Imobiliária</p>
             </div>
@@ -99,25 +99,14 @@ export const Header = () => {
           </nav>
 
           <button
-            className="md:hidden text-gold z-[70] relative w-10 h-10 flex items-center justify-center focus:outline-none"
+            className={`md:hidden z-[70] relative hamburger hamburger--spin ${isOpen ? 'is-active' : ''}`}
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
-            aria-label="Toggle navigation menu"
+            aria-label="Abrir/Fechar Menu"
           >
-            <div className="relative w-8 h-6">
-              <motion.span
-                animate={isOpen ? { rotate: 45, y: 11, backgroundColor: "#C19A5B" } : { rotate: 0, y: 0, backgroundColor: "#C19A5B" }}
-                className="absolute top-0 left-0 w-full h-[1.5px] block transform origin-center"
-              />
-              <motion.span
-                animate={isOpen ? { opacity: 0, x: -20 } : { opacity: 1, x: 0, backgroundColor: "#C19A5B" }}
-                className="absolute top-[11px] left-0 w-full h-[1.5px] block"
-              />
-              <motion.span
-                animate={isOpen ? { rotate: -45, y: -11, backgroundColor: "#C19A5B" } : { rotate: 0, y: 0, backgroundColor: "#C19A5B" }}
-                className="absolute bottom-0 left-0 w-full h-[1.5px] block transform origin-center"
-              />
-            </div>
+            <span className="hamburger-box">
+              <span className="hamburger-inner"></span>
+            </span>
           </button>
         </div>
       </motion.header>
