@@ -14,39 +14,40 @@ const PropertyCard = ({ image, title, category, location, area, index }: { image
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.2 }}
-      viewport={{ once: true }}
-      className="group relative h-[600px] overflow-hidden cursor-pointer"
-      data-property
-      data-title={title}
-      data-category={category}
-      data-image={image}
-      data-location={location}
-      data-area={area}
-    >
-      <motion.div style={{ y }} className="absolute inset-0">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-[120%] object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-      </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-t from-forest via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+    <div ref={ref} className="relative h-[600px] overflow-hidden cursor-pointer group">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: index * 0.2 }}
+        viewport={{ once: true }}
+        className="w-full h-full"
+        data-property
+        data-title={title}
+        data-category={category}
+        data-image={image}
+        data-location={location}
+        data-area={area}
+      >
+        <motion.div style={{ y }} className="absolute inset-0">
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-[120%] object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-forest via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
-      <div className="absolute inset-0 flex flex-col justify-end p-12">
-        <span className="text-gold font-sans text-xs uppercase tracking-[0.3em] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-          {category}
-        </span>
-        <h3 className="text-off-white font-serif text-3xl mb-4">
-          {title}
-        </h3>
-        <div className="w-12 h-1 bg-gold transition-all duration-500 group-hover:w-full" />
-      </div>
-    </motion.div>
+        <div className="absolute inset-0 flex flex-col justify-end p-12">
+          <span className="text-gold font-sans text-xs uppercase tracking-[0.3em] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+            {category}
+          </span>
+          <h3 className="text-off-white font-serif text-3xl mb-4">
+            {title}
+          </h3>
+          <div className="w-12 h-1 bg-gold transition-all duration-500 group-hover:w-full" />
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
@@ -83,8 +84,8 @@ export const Curadoria = () => {
   ];
 
   return (
-    <section id="a-curadoria" className="py-24 bg-off-white dark:bg-deep-black">
-      <div className="container mx-auto px-6">
+    <section id="a-curadoria" className="py-24 bg-off-white dark:bg-deep-black relative">
+      <div className="container mx-auto px-6 relative">
         <div className="max-w-3xl mb-16">
           <motion.span
             initial={{ opacity: 0 }}
@@ -106,7 +107,7 @@ export const Curadoria = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {properties.map((prop, i) => (
             <PropertyCard key={i} {...prop} index={i} />
           ))}

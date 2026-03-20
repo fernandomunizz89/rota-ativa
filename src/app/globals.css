@@ -16,9 +16,7 @@
   scroll-behavior: smooth;
 }
 
-html {
-  scroll-snap-type: y proximity;
-}
+
 
 @media (prefers-color-scheme: dark) {
   :root {

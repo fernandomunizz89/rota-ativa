@@ -25,10 +25,10 @@ export default function RootLayout({
   return (
     <html
       lang="pt-PT"
-      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
+      className={`${playfair.variable} ${inter.variable} h-full antialiased relative`}
       suppressHydrationWarning={true}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col relative">{children}</body>
     </html>
   );
 }

@@ -19,7 +19,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen bg-off-white selection:bg-gold selection:text-forest overflow-x-hidden">
+    <main className="relative min-h-screen bg-off-white selection:bg-gold selection:text-forest">
       <Header />
 
       <Hero />
@@ -70,7 +70,7 @@ export default function Home() {
             handleOpenProperty({ title, category, image, location, area });
           }
         }}
-        className="cursor-pointer"
+        className="cursor-pointer relative"
       >
         <Curadoria />
       </div>
