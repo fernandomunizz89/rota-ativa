@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -29,10 +30,13 @@ const PropertyCard = ({ image, title, category, location, area, index }: { image
         data-area={area}
       >
         <motion.div style={{ y }} className="absolute inset-0">
-          <img
+          <Image
             src={image}
-            alt={title}
-            className="w-full h-[120%] object-cover transition-transform duration-700 group-hover:scale-110"
+            alt={`${title} em ${location} - Rota Ativa | Mediação Imobiliária`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            priority={index === 0}
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-forest via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />

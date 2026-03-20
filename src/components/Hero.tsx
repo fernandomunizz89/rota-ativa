@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export const Hero = () => {
@@ -14,10 +15,12 @@ export const Hero = () => {
           transition={{ duration: 2, ease: "easeOut" }}
           className="w-full h-full"
         >
-          <img
+          <Image
             src="/images/hero.png"
-            alt="Mediação Imobiliária"
-            className="w-full h-full object-cover brightness-50"
+            alt="Rota Ativa - Mediação Imobiliária de Luxo e Curadoria de Imóveis em Portugal"
+            fill
+            priority
+            className="object-cover brightness-50"
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-forest/30 via-transparent to-forest/80" />

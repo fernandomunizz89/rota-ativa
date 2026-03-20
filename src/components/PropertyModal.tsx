@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -26,7 +27,7 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-forest/90 backdrop-blur-xl p-4 md:p-10"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-forest/90 backdrop-blur-xl p-4 md:p-10"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 50 }}
@@ -44,7 +45,14 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             {/* Massive Gallery Part */}
             <div className="flex-[2] h-[400px] md:h-auto overflow-y-auto custom-scrollbar">
               <div className="grid grid-cols-1 gap-4 p-4">
-                <img src={property.image} alt={property.title} className="w-full h-auto object-cover" />
+                <Image 
+                  src={property.image} 
+                  alt={`${property.title} em ${property.location} - Rota Ativa | Mediação Imobiliária`}
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto object-cover" 
+                  priority
+                />
                 <div className="grid grid-cols-2 gap-4">
                   <div className="h-64 bg-forest/10 animate-pulse" />
                   <div className="h-64 bg-forest/10 animate-pulse" />

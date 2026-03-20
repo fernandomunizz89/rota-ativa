@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Curadoria } from '@/components/Curadoria';
@@ -28,8 +29,14 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 blur-[120px] rounded-full" />
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div className="relative">
-            <div className="aspect-[4/5] bg-deep-black overflow-hidden shadow-2xl">
-              <img src="/images/hero.png" className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" />
+            <div className="aspect-[4/5] bg-deep-black overflow-hidden shadow-2xl relative">
+              <Image 
+                src="/images/hero.png" 
+                alt="Rota Ativa - Excelência Imobiliária e Mediação de Luxo em Portugal"
+                fill
+                className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
+                priority
+              />
             </div>
             <div className="absolute -bottom-10 -right-10 w-64 h-64 border border-gold/30 hidden md:block" />
           </div>
