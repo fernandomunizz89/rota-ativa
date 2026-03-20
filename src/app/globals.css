@@ -74,9 +74,6 @@ h1, h2, h3, h4, .font-serif {
 /* Hamburger Icon Animation */
 .hamburger {
   padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   transition-property: opacity, filter;
   transition-duration: 0.15s;

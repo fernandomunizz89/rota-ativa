@@ -99,7 +99,7 @@ export const Header = () => {
           </nav>
 
           <button
-            className={`md:hidden z-[70] relative hamburger hamburger--spin ${isOpen ? 'is-active' : ''}`}
+            className={`flex md:hidden z-[70] relative items-center justify-center hamburger hamburger--spin ${isOpen ? 'is-active' : ''}`}
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-label="Abrir/Fechar Menu"
