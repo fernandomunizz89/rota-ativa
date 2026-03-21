@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden py-24 lg:py-0">
       {/* Background Image / Video Fallback */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -28,30 +28,30 @@ export const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl">
+      <div className="relative z-10 text-center px-6 max-w-5xl mt-12 lg:mt-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
           className="will-change-transform"
         >
-          <span className="text-gold font-sans text-sm md:text-base uppercase tracking-[0.5em] mb-4 block">
+          <span className="text-gold font-sans text-xs md:text-sm lg:text-base uppercase tracking-[0.5em] mb-2 md:mb-4 block">
             Inteligência Imobiliária
           </span>
-          <h1 className="text-off-white font-serif text-5xl md:text-8xl mb-8 leading-tight">
+          <h1 className="text-off-white font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 md:mb-8 leading-tight">
             Rota Ativa.<br />
             <span className="text-gold">A Sua Procura. Centralizada.</span>
           </h1>
-          <p className="text-off-white/80 font-sans text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          <p className="text-off-white/80 font-sans text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6 md:mb-10 leading-relaxed font-light">
             Mais do que uma imobiliária tradicional, oferecemos uma procura ativa e altamente personalizada, focada em encontrar as melhores oportunidades de acordo com o seu perfil.
           </p>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
             <motion.a
               href="#a-curadoria"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-gold text-forest font-sans uppercase tracking-widest text-sm font-bold shadow-2xl hover:bg-off-white transition-colors duration-300"
+              className="px-6 py-4 md:px-10 md:py-5 bg-gold text-forest font-sans uppercase tracking-widest text-xs md:text-sm font-bold shadow-2xl hover:bg-off-white transition-colors duration-300 w-full sm:w-auto"
             >
               Explorar Curadoria
             </motion.a>
@@ -59,7 +59,7 @@ export const Hero = () => {
               href="#contacto-privado"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 border border-gold text-gold font-sans uppercase tracking-widest text-sm font-bold hover:bg-gold hover:text-forest transition-all duration-300"
+              className="px-6 py-4 md:px-10 md:py-5 border border-gold text-gold font-sans uppercase tracking-widest text-xs md:text-sm font-bold hover:bg-gold hover:text-forest transition-all duration-300 w-full sm:w-auto"
             >
               Consulta Privada
             </motion.a>
