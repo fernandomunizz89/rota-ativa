@@ -122,8 +122,8 @@ export const properties: Property[] = [
     imagens: {
       principal: "/images/hotel.png",
       internas: [
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=1200"
+        "/images/hotel-recepcao-saguao.png",
+        "/images/hotel-quarto.png"
       ]
     },
     tags: ["hotel", "spa", "gaia", "investimento"]
