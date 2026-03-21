@@ -120,7 +120,7 @@ export const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-deep-black/60 backdrop-blur-sm z-[55] lg:hidden"
+              className="fixed inset-0 bg-deep-black/60 backdrop-blur-md z-[55] lg:hidden will-change-opacity"
             />
 
             <motion.div
@@ -128,10 +128,10 @@ export const Header = () => {
               animate="opened"
               exit="closed"
               variants={menuVariants}
-              className="fixed top-0 right-0 h-full z-[60] w-full md:w-[450px] lg:hidden bg-forest/80 backdrop-blur-2xl flex flex-col items-center justify-center overflow-hidden shadow-2xl border-l border-gold/10 will-change-transform"
+              className="fixed top-0 right-0 h-[100dvh] z-[60] w-full md:w-[450px] lg:hidden bg-forest/95 flex flex-col items-center justify-center overflow-hidden shadow-2xl border-l border-gold/10 will-change-transform"
             >
-              {/* Backdrop Blur effect layer */}
-              <div className="absolute inset-0 bg-forest/20 -z-10" />
+              {/* Decorative accent layer instead of heavy blur */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent -z-10" />
 
               <nav className="flex flex-col items-center gap-10 mt-10">
                 {menuItems.map((item) => (
@@ -140,7 +140,7 @@ export const Header = () => {
                     variants={itemVariants}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-gold font-serif text-5xl hover:opacity-70 transition-all tracking-tight will-change-transform"
+                    className="text-gold font-serif text-5xl hover:opacity-70 transition-all tracking-tight will-change-transform antialiased [backface-visibility:hidden] transform-gpu"
                   >
                     {item.name}
                   </motion.a>
@@ -148,7 +148,7 @@ export const Header = () => {
 
                 <motion.button
                   variants={itemVariants}
-                  className="mt-10 px-10 py-5 border border-gold/50 text-gold font-serif text-2xl hover:bg-gold hover:text-forest transition-all rounded-sm tracking-wide will-change-transform"
+                  className="mt-10 px-10 py-5 border border-gold/50 text-gold font-serif text-2xl hover:bg-gold hover:text-forest transition-all rounded-sm tracking-wide will-change-transform antialiased [backface-visibility:hidden] transform-gpu"
                   onClick={() => setIsOpen(false)}
                 >
                   Agendamento
