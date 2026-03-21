@@ -96,7 +96,7 @@ export const Curadoria = () => {
             whileInView={{ opacity: 1 }}
             className="text-gold font-sans text-xs uppercase tracking-[0.4em] mb-4 block"
           >
-            Nossa Curadoria
+            O Nosso Portfólio
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
@@ -104,10 +104,10 @@ export const Curadoria = () => {
             transition={{ duration: 0.8 }}
             className="text-forest dark:text-off-white font-serif text-4xl md:text-6xl mb-6"
           >
-            Propriedades que Contam Histórias.
+            Oportunidades Únicas e Preservadas.
           </motion.h2>
           <p className="text-forest/70 dark:text-off-white/60 font-sans text-lg">
-            Abordamos a mediação imobiliária como uma curadoria de arte. Cada propriedade é selecionada pela sua singularidade, arquitetura e localização privilegiada.
+            Temos acesso a imóveis exclusivos, muitos deles em regime off-market. Apresentamos oportunidades apenas mediante consulta, garantindo a privacidade dos nossos clientes e parceiros ao longo de toda a negociação.
           </p>
         </div>
 

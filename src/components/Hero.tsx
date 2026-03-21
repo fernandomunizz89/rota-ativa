@@ -34,14 +34,14 @@ export const Hero = () => {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <span className="text-gold font-sans text-sm md:text-base uppercase tracking-[0.5em] mb-4 block">
-            Exclusividade em Cada Detalhe
+            Inteligência Imobiliária
           </span>
           <h1 className="text-off-white font-serif text-5xl md:text-8xl mb-8 leading-tight">
             Rota Ativa.<br />
-            <span className="text-gold">Descubra a Excelência.</span>
+            <span className="text-gold">A Sua Procura. Centralizada.</span>
           </h1>
           <p className="text-off-white/80 font-sans text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-            Mediação imobiliária em Porto e arredores. Uma curadoria editorial das propriedades mais exclusivas de Portugal.
+            Mais do que uma imobiliária tradicional, oferecemos uma procura ativa e altamente personalizada, focada em encontrar as melhores oportunidades de acordo com o seu perfil.
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">

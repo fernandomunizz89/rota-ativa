@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 
 const commitments = [
   {
-    title: "Prioridade ao Cliente",
-    description: "Colocamos você no centro de tudo. Seu perfil, suas necessidades, sua busca.",
+    title: "Procura Personalizada",
+    description: "Procuramos o imóvel ideal com base nos seus critérios: tipologia, localização e orçamento. Apoiamos o seu perfil com total assertividade.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -14,8 +14,8 @@ const commitments = [
     ),
   },
   {
-    title: "Eliminação de Barreiras",
-    description: "Diga adeus às ligações indesejadas e visitas sem propósito. Nosso foco é oferecer opções alinhadas ao que você realmente deseja.",
+    title: "Imóveis Off-Market",
+    description: "Temos um portfólio de propriedades em regime de confidencialidade, disponíveis apenas mediante consulta qualificada, preservando a sua discrição.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636" />
@@ -23,8 +23,8 @@ const commitments = [
     ),
   },
   {
-    title: "Transparência e Economia",
-    description: "Nossos serviços não têm custo para você. A remuneração é garantida pelos vendedores, assegurando uma parceria transparente e vantajosa.",
+    title: "Parcerias de Mercado",
+    description: "Colaboramos ativamente com o mercado, assegurando a transparência do processo e as mesmas condições com um único acompanhamento centralizado.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -32,8 +32,8 @@ const commitments = [
     ),
   },
   {
-    title: "Experiência sem Estresse",
-    description: "A jornada até o lar dos seus sonhos deve ser emocionante, não estressante. Estamos aqui para garantir que seja exatamente assim.",
+    title: "Hotéis e Investimentos",
+    description: "Além do residencial, intermediamos ativos hoteleiros, infraestruturas com projetos aprovados e imóveis comerciais entre Porto, Lisboa e Algarve.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -67,7 +67,7 @@ export const AboutUs = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-serif text-5xl md:text-7xl text-forest mb-8 leading-tight"
           >
-            SOBRE A <span className="text-gold">ROTA ATIVA</span>
+            O DIFERENCIAL <span className="text-gold">ROTA ATIVA</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -76,7 +76,7 @@ export const AboutUs = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-forest/80 font-sans text-xl md:text-2xl leading-relaxed font-light"
           >
-            Bem-vindo à Rota Ativa, a inovação no universo imobiliário! Estamos aqui para redefinir a sua experiência na busca pelo imóvel ideal. Ao contrário do convencional, concentramos nosso compromisso exclusivamente nos clientes compradores.
+            A nossa experiência internacional permite-nos compreender a diversidade de perfis e a dinâmica de mercado. Oferecemos um serviço altamente personalizado, assegurando que o seu processo é completo, seguro e sempre adequado aos seus objetivos.
           </motion.p>
         </div>
 
@@ -90,9 +90,9 @@ export const AboutUs = () => {
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 blur-3xl group-hover:bg-gold/20 transition-all duration-700" />
             {/* <span className="text-gold font-sans text-xs uppercase tracking-widest mb-6 block opacity-70">Subtítulo 1</span> */}
-            <h3 className="font-serif text-4xl text-off-white mb-6">Quem Somos</h3>
+            <h3 className="font-serif text-4xl text-off-white mb-6">Processo Centralizado</h3>
             <p className="text-off-white/70 font-sans text-lg leading-relaxed">
-              Somos mais do que uma imobiliária, somos a Rota Ativa, dedicados a proporcionar uma jornada única e sem contratempos na realização da aquisição do seu imóvel.
+              Em vez de o cliente ter de contactar diversas imobiliárias e receber propostas não solicitadas, nós centralizamos a análise de mercado. Proporcionamos conforto, redução de atritos e acesso a oportunidades exclusivas.
             </p>
           </motion.div>
 
@@ -104,10 +104,10 @@ export const AboutUs = () => {
             className="flex flex-col justify-center"
           >
             {/* <span className="text-gold font-sans text-xs uppercase tracking-widest mb-6 block">Subtítulo 2</span> */}
-            <h3 className="font-serif text-4xl text-forest mb-8">Nosso Compromisso</h3>
+            <h3 className="font-serif text-4xl text-forest mb-8">Ampla Visão de Mercado</h3>
             <div className="w-20 h-1 bg-gold mb-8" />
             <p className="text-forest/70 font-sans text-lg leading-relaxed">
-              Acreditamos que a exclusividade deve ser acompanhada de transparência e eficiência. Cada pilar do nosso compromisso foi desenhado para proteger os seus interesses.
+              A nossa atuação no segmento residencial está concentrada no Grande Porto. No segmento de investimentos — de terrenos a ativos comerciais —, atuamos de forma global, desde Viana do Castelo até Lisboa e o Algarve.
             </p>
           </motion.div>
         </div>

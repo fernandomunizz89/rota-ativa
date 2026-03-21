@@ -43,20 +43,20 @@ export default function Home() {
           </div>
 
           <div>
-            <span className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block">A Nossa Identidade</span>
+            <span className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block">Quem Somos</span>
             <h2 className="font-serif text-5xl md:text-7xl mb-10 leading-tight">
-              Excelência <br />
-              <span className="text-gold">Imobiliária.</span>
+              Abordagem <br />
+              <span className="text-gold">Estratégica.</span>
             </h2>
             <div className="space-y-6 text-off-white/70 font-sans text-lg leading-relaxed max-w-xl">
               <p>
-                A Rota Ativa nasceu da necessidade de elevar o padrão da mediação imobiliária em Portugal. Não somos apenas uma agência; somos curadores de estilo de vida.
+                A Rota Ativa atua como uma estrutura de inteligência imobiliária. Com mais de uma década de know-how no Brasil e em Portugal, compreendemos em profundidade a diversidade de perfis e a dinâmica do mercado.
               </p>
               <p>
-                Nosso diferencial está no atendimento personalizado, pensado para entender e atender exatamente o que cada cliente precisa, sempre com discrição e uma sólida rede de contactos.
+                Em vez de lidar com múltiplos consultores e propostas desalinhadas, centralizamos o seu processo. Filtramos desde residências ao off-market, passando por hotéis e terrenos, para lhe apresentar as propostas com mais assertividade.
               </p>
               <p className="font-serif italic text-gold text-2xl pt-6">
-                "Onde a exclusividade encontra a sua rota."
+                "Mais conforto, total discrição e a oportunidade certa."
               </p>
             </div>
           </div>
