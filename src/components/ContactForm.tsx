@@ -1,15 +1,39 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const ContactForm = () => {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const sendEmail = async (e: FormEvent) => {
     e.preventDefault();
-    setStatus('sending');
-    setTimeout(() => setStatus('success'), 1500);
+    if (!formRef.current) return;
+
+    setStatus('loading');
+
+    try {
+      const result = await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
+      );
+
+      if (result.text === 'OK') {
+        setStatus('success');
+        formRef.current.reset();
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        throw new Error('Erro ao enviar mensagem.');
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   return (
@@ -46,21 +70,21 @@ export const ContactForm = () => {
         </div>
 
         <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex-1 w-full max-w-xl bg-deep-black p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-gold/10 relative z-10 will-change-transform"
-          >
-          <form suppressHydrationWarning onSubmit={handleSubmit} className="space-y-12">
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex-1 w-full max-w-xl bg-deep-black p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-gold/10 relative z-10 will-change-transform"
+        >
+          <form ref={formRef} onSubmit={sendEmail} className="space-y-12">
             {[
-              { id: 'name', label: 'Nome Completo', type: 'text' },
-              { id: 'phone', label: 'Telefone', type: 'tel' },
-              { id: 'email', label: 'E-mail', type: 'email' },
+              { id: 'user_name', label: 'Nome Completo', type: 'text' },
+              { id: 'user_email', label: 'E-mail', type: 'email' },
+              { id: 'subject', label: 'Assunto', type: 'text' },
             ].map((field) => (
               <div key={field.id} className="relative group">
                 <input
-                  suppressHydrationWarning
                   required
+                  name={field.id}
                   type={field.type}
                   className="w-full bg-transparent border-b border-off-white/20 py-4 outline-none focus:border-gold transition-colors duration-300 peer placeholder-transparent"
                   placeholder={field.label}
@@ -77,8 +101,8 @@ export const ContactForm = () => {
 
             <div className="relative group">
               <textarea
-                suppressHydrationWarning
                 required
+                name="message"
                 rows={4}
                 className="w-full bg-transparent border-b border-off-white/20 py-4 outline-none focus:border-gold transition-colors duration-300 peer placeholder-transparent resize-none"
                 placeholder="Mensagem"
@@ -92,14 +116,41 @@ export const ContactForm = () => {
               </label>
             </div>
 
-            <motion.button
-              disabled={status !== 'idle'}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full py-6 bg-gold text-forest font-sans font-bold uppercase tracking-[0.3em] shadow-xl hover:bg-off-white transition-colors duration-300 disabled:opacity-50 will-change-transform"
-            >
-              {status === 'idle' ? 'Solicitar Consultoria Privada' : status === 'sending' ? 'A enviar...' : 'Mensagem Enviada'}
-            </motion.button>
+            <div className="space-y-4">
+              <motion.button
+                disabled={status === 'loading' || status === 'success'}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full py-6 bg-gold text-forest font-sans font-bold uppercase tracking-[0.3em] shadow-xl hover:bg-off-white transition-colors duration-300 disabled:opacity-50 will-change-transform"
+              >
+                {status === 'idle' ? 'Solicitar Consultoria Privada' :
+                 status === 'loading' ? 'A enviar...' :
+                 status === 'success' ? 'Mensagem Enviada' : 'Erro no Envio'}
+              </motion.button>
+
+              <AnimatePresence>
+                {status === 'error' && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-red-400 text-xs uppercase tracking-widest text-center"
+                  >
+                    Ocorreu um erro. Tente novamente.
+                  </motion.p>
+                )}
+                {status === 'success' && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-gold text-xs uppercase tracking-widest text-center"
+                  >
+                    Recebemos o seu contacto. Obrigado.
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
           </form>
         </motion.div>
       </div>
