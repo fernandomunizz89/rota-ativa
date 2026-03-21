@@ -20,13 +20,6 @@ const actions = [
     type: 'link'
   },
   {
-    icon: <Calendar size={18} />,
-    label: 'Reserva de Horário (15min)',
-    subLabel: 'Agendar Reunião',
-    href: 'https://calendly.com/rota-ativa', // Placeholder link
-    type: 'link'
-  },
-  {
     icon: <FileText size={18} />,
     label: 'Receber Portfólio PDF',
     subLabel: 'Brochura Digital',
