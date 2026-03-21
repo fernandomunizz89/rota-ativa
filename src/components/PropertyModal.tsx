@@ -1,9 +1,9 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Property } from '@/data/properties';
 
 interface PropertyModalProps {
@@ -13,12 +13,17 @@ interface PropertyModalProps {
 }
 
 export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps) => {
+  const [fullScreenIndex, setFullScreenIndex] = useState<number | null>(null);
+
   if (!property) return null;
+
+  const allImages = [property.imagens.principal, ...property.imagens.internas];
 
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          key="main-modal"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -38,29 +43,42 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             </button>
 
             {/* Massive Gallery Part */}
-            <div className="flex-[2] h-[400px] md:h-auto overflow-y-auto custom-scrollbar bg-off-white dark:bg-deep-black">
+            <div className="flex-none h-[40vh] md:flex-[2] md:h-auto overflow-y-auto custom-scrollbar bg-off-white dark:bg-deep-black">
               <div className="grid grid-cols-1 gap-4 p-4">
-                <div className="relative aspect-video w-full overflow-hidden">
+                <div 
+                  className="relative aspect-video w-full overflow-hidden cursor-pointer group"
+                  onClick={() => setFullScreenIndex(0)}
+                >
                   <Image 
                     src={property.imagens.principal} 
                     alt={`${property.titulo} em ${property.localizacao} - Rota Ativa | Mediação Imobiliária`}
                     fill
                     sizes="(max-width: 768px) 100vw, 80vw"
-                    className="object-cover" 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700" 
                     priority
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <ZoomIn className="text-white drop-shadow-md" size={48} />
+                  </div>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {property.imagens.internas.map((img, idx) => (
-                    <div key={idx} className="relative h-64 w-full overflow-hidden">
+                    <div 
+                      key={idx} 
+                      className="relative h-64 w-full overflow-hidden cursor-pointer group"
+                      onClick={() => setFullScreenIndex(idx + 1)}
+                    >
                       <Image 
                         src={img} 
                         alt={`${property.titulo} - Detalhe ${idx + 1}`}
                         fill
                         sizes="(max-width: 768px) 100vw, 40vw"
-                        className="object-cover hover:scale-110 transition-transform duration-700" 
+                        className="object-cover group-hover:scale-110 transition-transform duration-700" 
                       />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                        <ZoomIn className="text-white drop-shadow-md" size={32} />
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -147,6 +165,73 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
                 </form>
               </div>
             </div>
+          </motion.div>
+        </motion.div>
+      )}
+
+      {/* Full-Screen Image Overlay */}
+      {fullScreenIndex !== null && (
+        <motion.div
+          key="fullscreen-overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-deep-black/95 backdrop-blur-md p-4"
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setFullScreenIndex(null)}
+            className="absolute top-6 right-6 z-20 p-3 bg-off-white/10 text-off-white rounded-full hover:bg-gold hover:text-deep-black transition-colors shadow-2xl backdrop-blur-md border border-off-white/20"
+          >
+            <X size={32} />
+          </button>
+
+          {/* Navigation Arrows */}
+          {fullScreenIndex > 0 && (
+            <button
+              onClick={() => setFullScreenIndex(prev => prev !== null ? prev - 1 : prev)}
+              className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 z-20 p-4 bg-off-white/10 text-gold rounded-full hover:bg-gold hover:text-deep-black transition-colors backdrop-blur-md"
+            >
+              <ChevronLeft size={32} />
+            </button>
+          )}
+
+          {fullScreenIndex < allImages.length - 1 && (
+            <button
+              onClick={() => setFullScreenIndex(prev => prev !== null ? prev + 1 : prev)}
+              className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 z-20 p-4 bg-off-white/10 text-gold rounded-full hover:bg-gold hover:text-deep-black transition-colors backdrop-blur-md"
+            >
+              <ChevronRight size={32} />
+            </button>
+          )}
+          
+          <motion.div 
+            key={fullScreenIndex} // Forces re-render and re-animation on index change
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="relative w-full h-full max-w-7xl max-h-[90vh] cursor-grab active:cursor-grabbing"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = Math.abs(offset.x) * velocity.x;
+              if (swipe < -10000 || offset.x < -100) {
+                if (fullScreenIndex < allImages.length - 1) setFullScreenIndex(fullScreenIndex + 1);
+              } else if (swipe > 10000 || offset.x > 100) {
+                if (fullScreenIndex > 0) setFullScreenIndex(fullScreenIndex - 1);
+              }
+            }}
+          >
+            <Image
+              src={allImages[fullScreenIndex]}
+              alt={`Visualização ampliada da imagem ${fullScreenIndex + 1}`}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
           </motion.div>
         </motion.div>
       )}
