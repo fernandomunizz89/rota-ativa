@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Curadoria } from '@/components/Curadoria';
@@ -35,13 +36,25 @@ export default function Home() {
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="relative">
             <div className="aspect-[4/5] bg-deep-black overflow-hidden shadow-2xl relative [@media(max-height:800px)]:max-w-[70%] [@media(max-height:800px)]:mx-auto">
-              <Image
-                src="/images/hero.png"
-                alt="Rota Ativa - Excelência Imobiliária e Mediação personalizada em Portugal"
-                fill
-                className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
-                priority
-              />
+              <motion.div
+                initial={{ filter: 'grayscale(100%)', opacity: 0.6 }}
+                whileInView={{ 
+                  filter: 'grayscale(0%)', 
+                  opacity: 1,
+                  transition: { duration: 5, ease: "easeOut" } 
+                }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 1.5, ease: "easeIn" }}
+                className="w-full h-full relative"
+              >
+                <Image
+                  src="/images/hero.png"
+                  alt="Rota Ativa - Excelência Imobiliária e Mediação personalizada em Portugal"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </motion.div>
             </div>
             <div className="absolute -bottom-10 -right-10 w-64 h-64 border border-gold/30 hidden md:block [@media(max-height:800px)]:hidden" />
           </div>
