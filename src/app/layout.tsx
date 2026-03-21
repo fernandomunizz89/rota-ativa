@@ -14,6 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rotaativa.pt'),
   title: 'Rota Ativa | Mediação Imobiliária Personalizada e Curadoria de Imóveis',
   description: 'Abordagem exclusiva e consultoria dedicada na busca do seu imóvel. Na Rota Ativa, focamos na sua necessidade com um serviço de mediação sob medida.',
   keywords: ['boutique imobiliária', 'mediação imobiliária personalizada', 'curadoria de imóveis', 'Portugal', 'luxury real estate Portugal', 'atendimento exclusivo'],

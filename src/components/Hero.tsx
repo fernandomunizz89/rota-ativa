@@ -13,13 +13,14 @@ export const Hero = () => {
           initial={{ scale: 1.2 }}
           animate={{ scale: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
-          className="w-full h-full"
+          className="w-full h-full relative"
         >
           <Image
             src="/images/hero.png"
             alt="Rota Ativa - Mediação Imobiliária personalizada e Curadoria de Imóveis em Portugal"
             fill
             priority
+            sizes="100vw"
             className="object-cover brightness-50"
           />
         </motion.div>

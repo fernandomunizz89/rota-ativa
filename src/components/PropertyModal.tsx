@@ -4,17 +4,12 @@ import React from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { Property } from '@/data/properties';
 
 interface PropertyModalProps {
   isOpen: boolean;
   onClose: () => void;
-  property: {
-    title: string;
-    category: string;
-    image: string;
-    location: string;
-    area: string;
-  } | null;
+  property: Property | null;
 }
 
 export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps) => {
@@ -43,40 +38,94 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             </button>
 
             {/* Massive Gallery Part */}
-            <div className="flex-[2] h-[400px] md:h-auto overflow-y-auto custom-scrollbar">
+            <div className="flex-[2] h-[400px] md:h-auto overflow-y-auto custom-scrollbar bg-off-white dark:bg-deep-black">
               <div className="grid grid-cols-1 gap-4 p-4">
-                <Image 
-                  src={property.image} 
-                  alt={`${property.title} em ${property.location} - Rota Ativa | Mediação Imobiliária`}
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto object-cover" 
-                  priority
-                />
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="h-64 bg-forest/10 animate-pulse" />
-                  <div className="h-64 bg-forest/10 animate-pulse" />
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <Image 
+                    src={property.imagens.principal} 
+                    alt={`${property.titulo} em ${property.localizacao} - Rota Ativa | Mediação Imobiliária`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 80vw"
+                    className="object-cover" 
+                    priority
+                  />
                 </div>
-                <div className="h-[600px] bg-forest/5 flex items-center justify-center border-2 border-dashed border-gold/20">
-                  <span className="text-gold font-serif italic text-lg text-center px-12">
-                    Espaço para fotografia adicional de altíssima resolução (WebP Optimized)
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {property.imagens.internas.map((img, idx) => (
+                    <div key={idx} className="relative h-64 w-full overflow-hidden">
+                      <Image 
+                        src={img} 
+                        alt={`${property.titulo} - Detalhe ${idx + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                        className="object-cover hover:scale-110 transition-transform duration-700" 
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div className="bg-forest/5 p-12 border border-gold/10 flex flex-col items-center justify-center text-center">
+                  <span className="text-gold font-serif italic text-lg mb-4">
+                    Solicite o Dossier Completo
                   </span>
+                  <p className="text-forest/60 dark:text-off-white/40 text-sm max-w-md">
+                    Temos documentação técnica detalhada, plantas e fotografias adicionais de alta resolução disponíveis sob consulta direta.
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Details & Form Part */}
-            <div className="flex-1 p-12 overflow-y-auto bg-forest text-off-white">
-              <span className="text-gold font-sans text-xs uppercase tracking-[0.4em] mb-4 block">
-                {property.category}
-              </span>
-              <h2 className="font-serif text-4xl mb-8 leading-tight">
-                {property.title}
-              </h2>
-              <div className="space-y-6 mb-12 font-sans text-off-white/70">
-                <p>Localização: {property.location}</p>
-                <p>Área: {property.area}</p>
-                <p>Preço sob consulta</p>
+            <div className="flex-1 p-12 overflow-y-auto bg-forest text-off-white flex flex-col">
+              <div className="mb-12">
+                <span className="text-gold font-sans text-xs uppercase tracking-[0.4em] mb-4 block">
+                  {property.tipo} | {property.classe}
+                </span>
+                <h2 className="font-serif text-4xl mb-8 leading-tight">
+                  {property.titulo}
+                </h2>
+                
+                <div className="flex gap-4 mb-8 flex-wrap">
+                  {property.tags.map(tag => (
+                    <span key={tag} className="text-[10px] uppercase tracking-widest border border-gold/30 px-3 py-1 text-gold/80">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="space-y-4 mb-10 font-sans text-off-white/80 border-l-2 border-gold/30 pl-6">
+                  <p className="flex justify-between">
+                    <span className="text-off-white/40">Localização</span>
+                    <span>{property.localizacao}</span>
+                  </p>
+                  <p className="flex justify-between">
+                    <span className="text-off-white/40">Área Total</span>
+                    <span>{property.area}</span>
+                  </p>
+                  <p className="flex justify-between text-gold font-semibold pt-2">
+                    <span>Preço</span>
+                    <span>Sob Consulta</span>
+                  </p>
+                </div>
+
+                <div className="space-y-6 mb-12 text-off-white/70 leading-relaxed">
+                  {property.descricao.map((para, idx) => (
+                    <p key={idx}>{para}</p>
+                  ))}
+                </div>
+
+                <div className="mb-12">
+                  <h4 className="text-gold font-sans text-xs uppercase tracking-[0.2em] mb-6">Destaques do Imóvel</h4>
+                  <ul className="space-y-3">
+                    {property.caracteristicas.map((feat, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm text-off-white/80">
+                        <span className="text-gold mt-1">✦</span>
+                        {feat}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               <div className="mt-auto border-t border-gold/20 pt-12">

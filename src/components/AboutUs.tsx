@@ -107,7 +107,7 @@ export const AboutUs = () => {
             <h3 className="font-serif text-4xl text-forest mb-8">Ampla Visão de Mercado</h3>
             <div className="w-20 h-1 bg-gold mb-8" />
             <p className="text-forest/70 font-sans text-lg leading-relaxed">
-              A nossa atuação no segmento residencial está concentrada no Grande Porto. No segmento de investimentos — de terrenos a ativos comerciais —, atuamos de forma global, desde Viana do Castelo até Lisboa e o Algarve.
+              A nossa atuação no segmento residencial está concentrada no Grande Porto. No segmento de investimentos de terrenos a ativos comerciais, atuamos de forma global, desde Viana do Castelo até Lisboa e o Algarve.
             </p>
           </motion.div>
         </div>

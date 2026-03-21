@@ -10,14 +10,18 @@ import { FloatingActionHub } from '@/components/FloatingActionHub';
 import { AboutUs } from '@/components/AboutUs';
 import { PropertyModal } from '@/components/PropertyModal';
 import { Logo } from '@/components/Logo';
+import { Property, properties } from '@/data/properties';
 
 export default function Home() {
-  const [selectedProperty, setSelectedProperty] = useState<{ title: string, category: string, image: string, location: string, area: string } | null>(null);
+  const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenProperty = (property: { title: string, category: string, image: string, location: string, area: string }) => {
-    setSelectedProperty(property);
-    setIsModalOpen(true);
+  const handleOpenProperty = (propertyId: string) => {
+    const property = properties.find(p => p.id === propertyId);
+    if (property) {
+      setSelectedProperty(property);
+      setIsModalOpen(true);
+    }
   };
 
   return (
@@ -70,12 +74,10 @@ export default function Home() {
         onClick={(e) => {
           const card = (e.target as HTMLElement).closest('[data-property]');
           if (card) {
-            const title = card.getAttribute('data-title')!;
-            const category = card.getAttribute('data-category')!;
-            const image = card.getAttribute('data-image')!;
-            const location = card.getAttribute('data-location')!;
-            const area = card.getAttribute('data-area')!;
-            handleOpenProperty({ title, category, image, location, area });
+            const id = card.getAttribute('data-id');
+            if (id) {
+              handleOpenProperty(id);
+            }
           }
         }}
         className="cursor-pointer relative"
@@ -112,11 +114,14 @@ export default function Home() {
 
       <FloatingActionHub />
 
-      <PropertyModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        property={selectedProperty}
-      />
+      {selectedProperty && (
+        <PropertyModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          property={selectedProperty}
+        />
+      )}
     </main>
   );
 }
+
