@@ -220,8 +220,7 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             transition={{ type: "spring", stiffness: 80, damping: 20, mass: 1 }}
             className="relative w-full h-full max-w-7xl max-h-[90vh] cursor-grab active:cursor-grabbing will-change-transform"
             drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={1}
+            dragMomentum={false}
             onDragEnd={(e, { offset, velocity }) => {
               const swipe = Math.abs(offset.x) * velocity.x;
               if (swipe < -10000 || offset.x < -100) {

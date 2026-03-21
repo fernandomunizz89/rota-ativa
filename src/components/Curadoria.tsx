@@ -187,8 +187,7 @@ export const Curadoria = () => {
               transition={{ type: "spring", stiffness: 80, damping: 20, mass: 1 }}
               style={{ width: `${(sortedProperties.length / itemsPerPage) * 100}%` }}
               drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={1}
+              dragMomentum={false}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = Math.abs(offset.x) * velocity.x;
                 if (swipe < -10000 || offset.x < -100) {
