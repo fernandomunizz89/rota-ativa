@@ -56,7 +56,7 @@ export const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block"
+            className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block will-change-transform"
           >
             A Nossa Essência
           </motion.span>
@@ -65,7 +65,7 @@ export const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif text-5xl md:text-7xl text-forest mb-8 leading-tight"
+            className="font-serif text-5xl md:text-7xl text-forest mb-8 leading-tight will-change-transform"
           >
             O DIFERENCIAL <span className="text-gold">ROTA ATIVA</span>
           </motion.h2>
@@ -74,7 +74,7 @@ export const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-forest/80 font-sans text-xl md:text-2xl leading-relaxed font-light"
+            className="text-forest/80 font-sans text-xl md:text-2xl leading-relaxed font-light will-change-transform"
           >
             A nossa experiência internacional permite-nos compreender a diversidade de perfis e a dinâmica de mercado. Oferecemos um serviço altamente personalizado, assegurando que o seu processo é completo, seguro e sempre adequado aos seus objetivos.
           </motion.p>
@@ -86,7 +86,7 @@ export const AboutUs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-forest p-12 shadow-2xl relative group"
+            className="bg-forest p-12 shadow-2xl relative group will-change-transform"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 blur-3xl group-hover:bg-gold/20 transition-all duration-700" />
             {/* <span className="text-gold font-sans text-xs uppercase tracking-widest mb-6 block opacity-70">Subtítulo 1</span> */}
@@ -101,7 +101,7 @@ export const AboutUs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-center will-change-transform"
           >
             {/* <span className="text-gold font-sans text-xs uppercase tracking-widest mb-6 block">Subtítulo 2</span> */}
             <h3 className="font-serif text-4xl text-forest mb-8">Ampla Visão de Mercado</h3>
@@ -120,9 +120,9 @@ export const AboutUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-8 border border-forest/5 hover:border-gold/30 transition-all duration-300 group"
+              className="bg-white p-8 border border-forest/5 hover:border-gold/30 transition-all duration-300 group will-change-transform"
             >
-              <div className="w-12 h-12 bg-forest text-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+              <div className="w-12 h-12 bg-forest text-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 will-change-transform">
                 {item.icon}
               </div>
               <h4 className="font-serif text-xl text-forest mb-4 group-hover:text-gold transition-colors">{item.title}</h4>

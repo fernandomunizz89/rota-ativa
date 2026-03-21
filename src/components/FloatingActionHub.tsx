@@ -53,7 +53,7 @@ export const FloatingActionHub = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            className="flex flex-col gap-2 mb-2"
+            className="flex flex-col gap-2 mb-2 will-change-transform"
           >
             {/* Backdrop-blur menu */}
             <div className="bg-forest/90 backdrop-blur-xl border border-gold/20 p-2 rounded-2xl shadow-2xl min-w-[240px]">
@@ -67,7 +67,7 @@ export const FloatingActionHub = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 + 0.1 }}
                   whileHover={{ x: 4, backgroundColor: 'rgba(193, 154, 91, 0.1)' }}
-                  className="flex items-center gap-4 p-3 rounded-xl transition-colors group"
+                  className="flex items-center gap-4 p-3 rounded-xl transition-colors group will-change-transform"
                 >
                   <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-forest transition-all duration-300">
                     {action.icon}
@@ -96,7 +96,7 @@ export const FloatingActionHub = () => {
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
             className={`
-              w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500
+              w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 will-change-transform
               ${isOpen ? 'bg-off-white text-forest rotate-90' : 'bg-forest text-gold border border-gold/30 hover:border-gold'}
             `}
           >

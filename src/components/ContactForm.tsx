@@ -22,7 +22,7 @@ export const ContactForm = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block"
+            className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block will-change-transform"
           >
             Contacto Privado
           </motion.span>
@@ -30,7 +30,7 @@ export const ContactForm = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl lg:text-7xl mb-8 leading-tight"
+            className="font-serif text-4xl md:text-5xl lg:text-7xl mb-8 leading-tight will-change-transform"
           >
             Inicie a Sua Jornada <br />
             <span className="text-gold">com Exclusividade.</span>
@@ -39,18 +39,18 @@ export const ContactForm = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-off-white/70 font-sans text-lg lg:text-xl max-w-md mx-auto lg:mx-0 leading-relaxed"
+            className="text-off-white/70 font-sans text-lg lg:text-xl max-w-md mx-auto lg:mx-0 leading-relaxed will-change-transform"
           >
             A nossa equipa de consultores especializados está pronta para oferecer um serviço personalizado e discreto.
           </motion.p>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex-1 w-full max-w-xl bg-deep-black p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-gold/10 relative z-10"
-        >
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 w-full max-w-xl bg-deep-black p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-gold/10 relative z-10 will-change-transform"
+          >
           <form suppressHydrationWarning onSubmit={handleSubmit} className="space-y-12">
             {[
               { id: 'name', label: 'Nome Completo', type: 'text' },
@@ -96,7 +96,7 @@ export const ContactForm = () => {
               disabled={status !== 'idle'}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-6 bg-gold text-forest font-sans font-bold uppercase tracking-[0.3em] shadow-xl hover:bg-off-white transition-colors duration-300 disabled:opacity-50"
+              className="w-full py-6 bg-gold text-forest font-sans font-bold uppercase tracking-[0.3em] shadow-xl hover:bg-off-white transition-colors duration-300 disabled:opacity-50 will-change-transform"
             >
               {status === 'idle' ? 'Solicitar Consultoria Privada' : status === 'sending' ? 'A enviar...' : 'Mensagem Enviada'}
             </motion.button>

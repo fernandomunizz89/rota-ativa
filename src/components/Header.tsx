@@ -70,7 +70,7 @@ export const Header = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 w-full z-[80] transition-all duration-500 ${isScrolled || isOpen ? 'bg-forest/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
+        className={`fixed top-0 left-0 w-full z-[80] transition-all duration-500 will-change-transform ${isScrolled || isOpen ? 'bg-forest/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
           }`}
       >
         <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
@@ -128,7 +128,7 @@ export const Header = () => {
               animate="opened"
               exit="closed"
               variants={menuVariants}
-              className="fixed top-0 right-0 h-full z-[60] w-full md:w-[450px] lg:hidden bg-forest/80 backdrop-blur-2xl flex flex-col items-center justify-center overflow-hidden shadow-2xl border-l border-gold/10"
+              className="fixed top-0 right-0 h-full z-[60] w-full md:w-[450px] lg:hidden bg-forest/80 backdrop-blur-2xl flex flex-col items-center justify-center overflow-hidden shadow-2xl border-l border-gold/10 will-change-transform"
             >
               {/* Backdrop Blur effect layer */}
               <div className="absolute inset-0 bg-forest/20 -z-10" />
@@ -140,7 +140,7 @@ export const Header = () => {
                     variants={itemVariants}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-gold font-serif text-5xl hover:opacity-70 transition-all tracking-tight"
+                    className="text-gold font-serif text-5xl hover:opacity-70 transition-all tracking-tight will-change-transform"
                   >
                     {item.name}
                   </motion.a>
@@ -148,7 +148,7 @@ export const Header = () => {
 
                 <motion.button
                   variants={itemVariants}
-                  className="mt-10 px-10 py-5 border border-gold/50 text-gold font-serif text-2xl hover:bg-gold hover:text-forest transition-all rounded-sm tracking-wide"
+                  className="mt-10 px-10 py-5 border border-gold/50 text-gold font-serif text-2xl hover:bg-gold hover:text-forest transition-all rounded-sm tracking-wide will-change-transform"
                   onClick={() => setIsOpen(false)}
                 >
                   Agendamento

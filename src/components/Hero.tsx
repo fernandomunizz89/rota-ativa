@@ -13,7 +13,7 @@ export const Hero = () => {
           initial={{ scale: 1.2 }}
           animate={{ scale: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
-          className="w-full h-full relative"
+          className="w-full h-full relative will-change-transform"
         >
           <Image
             src="/images/hero.png"
@@ -33,6 +33,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
+          className="will-change-transform"
         >
           <span className="text-gold font-sans text-sm md:text-base uppercase tracking-[0.5em] mb-4 block">
             Inteligência Imobiliária
@@ -70,7 +71,7 @@ export const Hero = () => {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 will-change-transform"
       >
         <span className="text-gold/50 font-sans text-[10px] uppercase tracking-widest">Scroll</span>
         <div className="w-[1px] h-12 bg-gradient-to-b from-gold to-transparent" />
