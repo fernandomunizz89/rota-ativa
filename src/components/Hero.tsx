@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden pt-32 pb-24 lg:pt-40 lg:pb-24">
+    <section id="home" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden pt-24 pb-20 lg:pt-32 lg:pb-24">
       {/* Background Image / Video Fallback */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -33,7 +33,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="will-change-transform bg-forest/20 backdrop-blur-md rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-16 border border-white/5 shadow-2xl"
+          className="will-change-transform bg-forest/20 backdrop-blur-xl rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 lg:p-16 border border-white/5 shadow-2xl"
         >
           <span className="text-gold font-sans text-[10px] sm:text-xs lg:text-sm uppercase tracking-[0.5em] mb-2 lg:mb-4 block [@media(max-height:800px)]:mb-2">
             Inteligência Imobiliária

@@ -70,7 +70,9 @@ export const Header = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 w-full z-[80] transition-all duration-500 will-change-transform ${isScrolled || isOpen ? 'bg-forest/90 backdrop-blur-md py-3 lg:py-4 shadow-xl' : 'bg-transparent py-4 lg:py-8 [@media(max-height:800px)]:py-4'
+        className={`fixed top-0 left-0 w-full z-[80] transition-all duration-500 will-change-transform ${isScrolled || isOpen 
+          ? 'bg-forest/90 backdrop-blur-md py-2 lg:py-3 shadow-xl' 
+          : 'bg-forest/5 backdrop-blur-sm py-3 lg:py-5 [@media(max-height:800px)]:py-3'
           }`}
       >
         <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
@@ -79,10 +81,10 @@ export const Header = () => {
             onClick={() => setIsOpen(false)}
             className="flex items-center gap-3 lg:gap-4 cursor-pointer no-underline group"
           >
-            <Logo className="w-16 h-16 lg:w-24 lg:h-24 transition-transform duration-300 group-hover:scale-105 [@media(max-height:800px)]:w-16 [@media(max-height:800px)]:h-16" />
+            <Logo className="w-14 h-14 lg:w-20 lg:h-20 transition-transform duration-300 group-hover:scale-105 [@media(max-height:800px)]:w-14 [@media(max-height:800px)]:h-14" />
             <div className="block">
-              <h1 className="text-gold font-serif text-lg lg:text-xl tracking-widest leading-none [@media(max-height:800px)]:text-lg">ROTA ATIVA</h1>
-              <p className="text-gold/80 font-sans text-[8px] lg:text-[10px] tracking-[0.3em] uppercase [@media(max-height:800px)]:text-[8px]">Mediação Imobiliária</p>
+              <h1 className="text-gold font-serif text-base lg:text-lg tracking-widest leading-none [@media(max-height:800px)]:text-base">ROTA ATIVA</h1>
+              <p className="text-gold/80 font-sans text-[7px] lg:text-[9px] tracking-[0.3em] uppercase [@media(max-height:800px)]:text-[7px]">Mediação Imobiliária</p>
             </div>
           </a>
 
