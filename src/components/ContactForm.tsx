@@ -37,7 +37,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <section id="contacto-privado" className="py-24 lg:py-48 bg-forest text-off-white relative overflow-hidden">
+    <section id="contacto-privado" className="py-16 lg:py-32 bg-forest text-off-white relative overflow-hidden [@media(max-height:800px)]:py-16">
       {/* Decorative background element */}
       <div className="absolute top-0 left-0 w-full h-1/2 bg-forest lg:h-full lg:w-1/2" />
 
@@ -54,7 +54,7 @@ export const ContactForm = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl lg:text-7xl mb-8 leading-tight will-change-transform"
+            className="font-serif text-4xl md:text-5xl lg:text-7xl mb-8 leading-tight will-change-transform [@media(max-height:800px)]:text-5xl [@media(max-height:800px)]:mb-4"
           >
             Inicie a Sua Jornada <br />
             <span className="text-gold">com Exclusividade.</span>
@@ -63,7 +63,7 @@ export const ContactForm = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-off-white/70 font-sans text-lg lg:text-xl max-w-md mx-auto lg:mx-0 leading-relaxed will-change-transform"
+            className="text-off-white/70 font-sans text-lg lg:text-xl max-w-md mx-auto lg:mx-0 leading-relaxed will-change-transform [@media(max-height:800px)]:text-base"
           >
             A nossa equipa de consultores especializados está pronta para oferecer um serviço personalizado e discreto.
           </motion.p>
@@ -73,7 +73,7 @@ export const ContactForm = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex-1 w-full max-w-xl bg-deep-black p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-gold/10 relative z-10 will-change-transform"
+          className="flex-1 w-full max-w-xl bg-deep-black p-8 lg:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-gold/10 relative z-10 will-change-transform [@media(max-height:800px)]:p-8"
         >
           <form ref={formRef} onSubmit={sendEmail} className="space-y-12">
             {[

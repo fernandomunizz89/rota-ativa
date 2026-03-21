@@ -65,7 +65,7 @@ export const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif text-5xl md:text-7xl text-forest mb-8 leading-tight will-change-transform"
+            className="font-serif text-5xl md:text-7xl text-forest mb-8 leading-tight will-change-transform [@media(max-height:800px)]:text-5xl [@media(max-height:800px)]:mb-4"
           >
             O DIFERENCIAL <span className="text-gold">ROTA ATIVA</span>
           </motion.h2>
@@ -74,7 +74,7 @@ export const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-forest/80 font-sans text-xl md:text-2xl leading-relaxed font-light will-change-transform"
+            className="text-forest/80 font-sans text-lg md:text-xl lg:text-2xl leading-relaxed font-light will-change-transform [@media(max-height:800px)]:text-lg"
           >
             A nossa experiência internacional permite-nos compreender a diversidade de perfis e a dinâmica de mercado. Oferecemos um serviço altamente personalizado, assegurando que o seu processo é completo, seguro e sempre adequado aos seus objetivos.
           </motion.p>

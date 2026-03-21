@@ -16,7 +16,7 @@ const PropertyCard = ({ id, image, title, category, location, area, index }: { i
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-<div ref={ref} className="relative h-[600px] overflow-hidden cursor-pointer group/card w-full property-card will-change-transform">
+    <div ref={ref} className="relative h-[500px] md:h-[600px] overflow-hidden cursor-pointer group/card w-full property-card will-change-transform [@media(max-height:800px)]:h-[450px]">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -149,7 +149,7 @@ export const Curadoria = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-forest dark:text-off-white font-serif text-4xl md:text-6xl mb-6"
+            className="text-forest dark:text-off-white font-serif text-4xl md:text-6xl mb-6 [@media(max-height:800px)]:text-4xl [@media(max-height:800px)]:mb-4"
           >
             Oportunidades Únicas e Preservadas.
           </motion.h2>
