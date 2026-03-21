@@ -16,13 +16,13 @@ const PropertyCard = ({ id, image, title, category, location, area, index }: { i
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-<div ref={ref} className="relative h-[600px] overflow-hidden cursor-pointer group/card w-full property-card">
+<div ref={ref} className="relative h-[600px] overflow-hidden cursor-pointer group/card w-full property-card will-change-transform">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="w-full h-full"
+        className="w-full h-full will-change-transform"
         data-property
         data-id={id}
         data-title={title}
@@ -31,14 +31,14 @@ const PropertyCard = ({ id, image, title, category, location, area, index }: { i
         data-location={location}
         data-area={area}
       >
-        <motion.div style={{ y }} className="absolute inset-0">
+        <motion.div style={{ y }} className="absolute inset-0 will-change-transform">
           <Image
             src={image}
             alt={`${title} em ${location} - Rota Ativa | Mediação Imobiliária`}
             fill
             priority={index < 4}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            className="object-cover transition-transform duration-700 scale-110 lg:scale-100 lg:group-hover/card:scale-110"
+            className="object-cover transition-transform duration-700 scale-110 lg:scale-100 lg:group-hover/card:scale-110 will-change-transform"
           />
         </motion.div>
         
@@ -63,7 +63,7 @@ const PropertyCard = ({ id, image, title, category, location, area, index }: { i
           <h3 className="text-off-white font-serif text-2xl md:text-3xl mb-4 leading-tight drop-shadow-sm">
             {title}
           </h3>
-          <div className="w-full lg:w-12 h-1 bg-gold transition-all duration-500 lg:group-hover/card:w-full shadow-[0_0_10px_rgba(255,255,255,0.1)]" />
+          <div className="w-full h-1 bg-gold origin-left transition-transform duration-500 scale-x-100 lg:scale-x-[0.15] lg:group-hover/card:scale-x-100 shadow-[0_0_10px_rgba(255,255,255,0.1)] will-change-transform" />
         </div>
       </motion.div>
     </div>
@@ -182,7 +182,7 @@ export const Curadoria = () => {
           {/* Carousel Viewport (Touch Swipe Enabled) */}
           <div className="overflow-hidden -mx-4">
             <motion.div 
-              className="flex cursor-grab active:cursor-grabbing"
+              className="flex cursor-grab active:cursor-grabbing will-change-transform"
               animate={{ x: `-${(startIndex / sortedProperties.length) * 100}%` }}
               transition={{ type: "spring", stiffness: 80, damping: 20, mass: 1 }}
               style={{ width: `${(sortedProperties.length / itemsPerPage) * 100}%` }}

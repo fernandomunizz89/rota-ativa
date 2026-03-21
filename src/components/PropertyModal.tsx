@@ -33,7 +33,8 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             initial={{ scale: 0.9, opacity: 0, y: 50 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 50 }}
-            className="relative w-full max-w-7xl max-h-[90vh] bg-off-white dark:bg-deep-black overflow-hidden flex flex-col md:flex-row shadow-2xl"
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="relative w-full max-w-7xl max-h-[90vh] bg-off-white dark:bg-deep-black overflow-hidden flex flex-col md:flex-row shadow-2xl will-change-transform"
           >
             <button
               onClick={onClose}
@@ -74,7 +75,7 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
                         alt={`${property.titulo} - Detalhe ${idx + 1}`}
                         fill
                         sizes="(max-width: 768px) 100vw, 40vw"
-                        className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                        className="object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" 
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
                         <ZoomIn className="text-white drop-shadow-md" size={32} />
@@ -188,21 +189,27 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
 
           {/* Navigation Arrows */}
           {fullScreenIndex > 0 && (
-            <button
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, x: [0, -5, 0] }}
+              transition={{ x: { repeat: Infinity, duration: 2, ease: "easeInOut" } }}
               onClick={() => setFullScreenIndex(prev => prev !== null ? prev - 1 : prev)}
-              className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 z-20 p-4 bg-off-white/10 text-gold rounded-full hover:bg-gold hover:text-deep-black transition-colors backdrop-blur-md"
+              className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 z-20 p-2 md:p-4 bg-off-white/10 text-gold rounded-full hover:bg-gold hover:text-deep-black transition-colors backdrop-blur-md flex items-center justify-center"
             >
               <ChevronLeft size={32} />
-            </button>
+            </motion.button>
           )}
 
           {fullScreenIndex < allImages.length - 1 && (
-            <button
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, x: [0, 5, 0] }}
+              transition={{ x: { repeat: Infinity, duration: 2, ease: "easeInOut" } }}
               onClick={() => setFullScreenIndex(prev => prev !== null ? prev + 1 : prev)}
-              className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 z-20 p-4 bg-off-white/10 text-gold rounded-full hover:bg-gold hover:text-deep-black transition-colors backdrop-blur-md"
+              className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 z-20 p-2 md:p-4 bg-off-white/10 text-gold rounded-full hover:bg-gold hover:text-deep-black transition-colors backdrop-blur-md flex items-center justify-center"
             >
               <ChevronRight size={32} />
-            </button>
+            </motion.button>
           )}
           
           <motion.div 
@@ -210,8 +217,8 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full h-full max-w-7xl max-h-[90vh] cursor-grab active:cursor-grabbing"
+            transition={{ type: "spring", stiffness: 80, damping: 20, mass: 1 }}
+            className="relative w-full h-full max-w-7xl max-h-[90vh] cursor-grab active:cursor-grabbing will-change-transform"
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={1}
