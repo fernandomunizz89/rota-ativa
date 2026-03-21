@@ -30,11 +30,11 @@ export default function Home() {
 
       <Hero />
 
-      <section id="a-marca" className="py-32 bg-forest text-off-white relative overflow-hidden">
+      <section id="a-marca" className="py-16 lg:py-32 bg-forest text-off-white relative overflow-hidden [@media(max-height:800px)]:py-16">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 blur-[120px] rounded-full" />
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="relative">
-            <div className="aspect-[4/5] bg-deep-black overflow-hidden shadow-2xl relative">
+            <div className="aspect-[4/5] bg-deep-black overflow-hidden shadow-2xl relative [@media(max-height:800px)]:max-w-[70%] [@media(max-height:800px)]:mx-auto">
               <Image
                 src="/images/hero.png"
                 alt="Rota Ativa - Excelência Imobiliária e Mediação personalizada em Portugal"
@@ -43,16 +43,16 @@ export default function Home() {
                 priority
               />
             </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 border border-gold/30 hidden md:block" />
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 border border-gold/30 hidden md:block [@media(max-height:800px)]:hidden" />
           </div>
 
           <div>
-            <span className="text-gold font-sans text-xs uppercase tracking-[0.5em] mb-6 block">Quem Somos</span>
-            <h2 className="font-serif text-5xl md:text-7xl mb-10 leading-tight">
+            <span className="text-gold font-sans text-[10px] sm:text-xs uppercase tracking-[0.5em] mb-4 lg:mb-6 block [@media(max-height:800px)]:mb-2">Quem Somos</span>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl mb-6 lg:mb-10 leading-tight [@media(max-height:800px)]:text-5xl [@media(max-height:800px)]:mb-4">
               Abordagem <br />
               <span className="text-gold">Estratégica.</span>
             </h2>
-            <div className="space-y-6 text-off-white/70 font-sans text-lg leading-relaxed max-w-xl">
+            <div className="space-y-4 lg:space-y-6 text-off-white/70 font-sans text-base lg:text-lg leading-relaxed max-w-xl [@media(max-height:800px)]:text-sm [@media(max-height:800px)]:space-y-2">
               <p>
                 A Rota Ativa atua como uma estrutura de inteligência imobiliária. Com mais de uma década de know-how no Brasil e em Portugal, compreendemos em profundidade a diversidade de perfis e a dinâmica do mercado.
               </p>
