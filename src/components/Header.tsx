@@ -70,28 +70,28 @@ export const Header = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 w-full z-[80] transition-all duration-500 will-change-transform ${isScrolled || isOpen ? 'bg-forest/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-8'
+        className={`fixed top-0 left-0 w-full z-[80] transition-all duration-500 will-change-transform ${isScrolled || isOpen ? 'bg-forest/90 backdrop-blur-md py-3 lg:py-4 shadow-xl' : 'bg-transparent py-4 lg:py-8 [@media(max-height:800px)]:py-4'
           }`}
       >
         <div className="container mx-auto px-6 md:px-8 flex items-center justify-between">
           <a
             href="#home"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-4 cursor-pointer no-underline group"
+            className="flex items-center gap-3 lg:gap-4 cursor-pointer no-underline group"
           >
-            <Logo className="w-24 h-24 transition-transform duration-300 group-hover:scale-105" />
+            <Logo className="w-16 h-16 lg:w-24 lg:h-24 transition-transform duration-300 group-hover:scale-105 [@media(max-height:800px)]:w-16 [@media(max-height:800px)]:h-16" />
             <div className="block">
-              <h1 className="text-gold font-serif text-xl tracking-widest leading-none">ROTA ATIVA</h1>
-              <p className="text-gold/80 font-sans text-[10px] tracking-[0.3em] uppercase">Mediação Imobiliária</p>
+              <h1 className="text-gold font-serif text-lg lg:text-xl tracking-widest leading-none [@media(max-height:800px)]:text-lg">ROTA ATIVA</h1>
+              <p className="text-gold/80 font-sans text-[8px] lg:text-[10px] tracking-[0.3em] uppercase [@media(max-height:800px)]:text-[8px]">Mediação Imobiliária</p>
             </div>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-12">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-12 [@media(max-height:800px)]:gap-6">
             {menuItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-off-white hover:text-gold transition-colors font-sans text-sm uppercase tracking-widest"
+                className="text-off-white hover:text-gold transition-colors font-sans text-xs xl:text-sm uppercase tracking-widest [@media(max-height:800px)]:text-xs"
               >
                 {item.name}
               </a>
