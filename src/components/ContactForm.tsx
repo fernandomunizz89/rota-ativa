@@ -51,7 +51,7 @@ export const ContactForm = () => {
           transition={{ duration: 0.8 }}
           className="flex-1 w-full max-w-xl bg-deep-black p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-gold/10 relative z-10"
         >
-          <form onSubmit={handleSubmit} className="space-y-12">
+          <form suppressHydrationWarning onSubmit={handleSubmit} className="space-y-12">
             {[
               { id: 'name', label: 'Nome Completo', type: 'text' },
               { id: 'phone', label: 'Telefone', type: 'tel' },
@@ -59,6 +59,7 @@ export const ContactForm = () => {
             ].map((field) => (
               <div key={field.id} className="relative group">
                 <input
+                  suppressHydrationWarning
                   required
                   type={field.type}
                   className="w-full bg-transparent border-b border-off-white/20 py-4 outline-none focus:border-gold transition-colors duration-300 peer placeholder-transparent"
@@ -76,6 +77,7 @@ export const ContactForm = () => {
 
             <div className="relative group">
               <textarea
+                suppressHydrationWarning
                 required
                 rows={4}
                 className="w-full bg-transparent border-b border-off-white/20 py-4 outline-none focus:border-gold transition-colors duration-300 peer placeholder-transparent resize-none"
