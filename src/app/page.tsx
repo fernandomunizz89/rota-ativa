@@ -38,9 +38,13 @@ export default function Home() {
             <div className="aspect-[4/5] bg-deep-black overflow-hidden shadow-2xl relative [@media(max-height:800px)]:max-w-[70%] [@media(max-height:800px)]:mx-auto">
               <motion.div
                 initial={{ filter: 'grayscale(100%)', opacity: 0.6 }}
-                whileInView={{ filter: 'grayscale(0%)', opacity: 1 }}
+                whileInView={{ 
+                  filter: 'grayscale(0%)', 
+                  opacity: 1,
+                  transition: { duration: 5, ease: "easeOut" } 
+                }}
                 viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 3, ease: "easeInOut" }}
+                transition={{ duration: 1.5, ease: "easeIn" }}
                 className="w-full h-full relative"
               >
                 <Image
