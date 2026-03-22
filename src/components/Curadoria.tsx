@@ -135,7 +135,7 @@ export const Curadoria = () => {
   const startIndex = getSlideStartIndex(currentIndex);
 
   return (
-    <section ref={sectionRef} id="a-curadoria" className="py-24 bg-off-white dark:bg-deep-black relative overflow-hidden">
+    <section ref={sectionRef} id="a-curadoria" className="py-24 bg-off-white relative overflow-hidden">
       <div className="container mx-auto px-6 relative">
         <div className="max-w-3xl mb-16">
           <motion.span
@@ -149,11 +149,11 @@ export const Curadoria = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-forest dark:text-off-white font-serif text-4xl md:text-6xl mb-6 [@media(max-height:800px)]:text-4xl [@media(max-height:800px)]:mb-4"
+            className="text-forest font-serif text-4xl md:text-6xl mb-6 [@media(max-height:800px)]:text-4xl [@media(max-height:800px)]:mb-4"
           >
             Oportunidades Únicas e Preservadas.
           </motion.h2>
-          <p className="text-forest/70 dark:text-off-white/60 font-sans text-lg">
+          <p className="text-forest/70 font-sans text-lg">
             Temos acesso a imóveis exclusivos, muitos deles em regime off-market. Apresentamos oportunidades apenas mediante consulta, garantindo a privacidade dos nossos clientes e parceiros ao longo de toda a negociação.
           </p>
         </div>
