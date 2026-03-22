@@ -73,15 +73,15 @@ export const properties: Property[] = [
     tags: ["douro", "vinha", "historico", "investimento"]
   },
   {
-    id: "villa-vilamoura",
+    id: "vila-vilamoura",
     tipo: "Moradia",
     classe: "Exclusivo",
     localizacao: "Vilamoura, Algarve",
-    titulo: "Villas no Litoral",
+    titulo: "Vilas no Litoral",
     area: "650m²",
     priority: 6,
     descricao: [
-      "Situada entre os melhores campos de golfe da Europa e a Marina de Vilamoura, esta villa representa a quintessência da vida no Algarve.",
+      "Situada entre os melhores campos de golfe da Europa e a Marina de Vilamoura, esta vila representa a essência da vida no Algarve.",
       "As áreas sociais fluem harmoniosamente para os jardins meticulosamente cuidados e para a piscina infinita que se funde com o horizonte.",
       "Design de interiores assinado por estúdio de renome, focando na serenidade e no uso de materiais naturais da região."
     ],
@@ -92,7 +92,7 @@ export const properties: Property[] = [
       "Cave ampla com ginásio e cinema privativo"
     ],
     imagens: {
-      principal: "/images/villa.png",
+      principal: "/images/vila.png",
       internas: [
         "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&q=80&w=1200",
         "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200"
@@ -105,12 +105,12 @@ export const properties: Property[] = [
     tipo: "Hotel & SPA",
     classe: "Investimento",
     localizacao: "Vila Nova de Gaia, Portugal",
-    titulo: "Hotel & SPA Premium com Vista Douro",
+    titulo: "Hotel & SPA Exclusivo com Vista Douro",
     area: "3.500m²",
     priority: 7,
     descricao: [
       "Uma oportunidade estratégica de investimento no setor de hospitalidade em plena transformação nas margens do Douro.",
-      "O projeto contempla 45 suites premium, um SPA de classe mundial focado em vinoterapia e um restaurante de assinatura com vista para a Ribeira do Porto.",
+      "O projeto contempla 45 suites exclusivas, um SPA de classe mundial focado em vinoterapia e um restaurante de assinatura com vista para a Ribeira do Porto.",
       "Situado na zona histórica das caves de Vinho do Porto, garantindo um fluxo constante de turismo de alto rendimento durante todo o ano."
     ],
     caracteristicas: [
@@ -162,7 +162,7 @@ export const properties: Property[] = [
     tipo: "Moradia Geminada",
     classe: "Média Alta",
     localizacao: "Bairro do Rosário, Cascais",
-    titulo: "Moradia Minimalista com Design de Autor e Acabamentos Premium",
+    titulo: "Moradia Minimalista com Design de Autor e Acabamentos de Excelência",
     area: "320m²",
     priority: 4,
     descricao: [
@@ -190,7 +190,7 @@ export const properties: Property[] = [
     tipo: "Moradia",
     classe: "Património",
     localizacao: "Colares, Sintra",
-    titulo: "Moradia de Traça Colonial com Jardins Centenários",
+    titulo: "Moradia de Linhas Coloniais com Jardins Centenários",
     area: "420m²",
     priority: 3,
     descricao: [
@@ -199,7 +199,7 @@ export const properties: Property[] = [
       "Inserida num lote com jardins maduros repletos de espécies exóticas, camélias e buganvílias, a propriedade oferece uma privacidade total num dos microclimas mais frescos e prestigiados de Portugal, a poucos minutos das praias de Cascais."
     ],
     caracteristicas: [
-      "Jardins de traça romântica com espécies centenárias",
+      "Jardins de linhas românticas com espécies centenárias",
       "Pinturas murais e azulejos de época preservados",
       "Pé-direito de 4 metros nas áreas sociais",
       "Lote de 2.500m² com total privacidade e vista serra"
