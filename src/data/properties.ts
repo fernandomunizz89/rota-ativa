@@ -219,26 +219,26 @@ export const properties: Property[] = [
     id: "terreno-expansao-braga",
     tipo: "Terreno",
     classe: "Investimento",
-    localizacao: "Gualtar, Braga",
-    titulo: "Lote de Terreno Plano com Viabilidade de Construção Imediata",
-    area: "600m²",
+    localizacao: "Portugal",
+    titulo: "Terrenos com Viabilidade de Construção e Elevado Potencial",
+    area: "600m² - 5.000m²",
     priority: 8,
     descricao: [
-      "Excelente oportunidade de investimento numa das zonas de maior expansão de Braga. Este terreno plano de 600m² possui todas as infraestruturas concluídas, permitindo o início do licenciamento ou construção de forma célere e sem imprevistos.",
-      "Localizado próximo do pólo universitário e de centros tecnológicos, o lote oferece uma topografia perfeita que reduz significativamente os custos de terraplenagem e fundações, maximizando a rentabilidade do projeto de construção.",
-      "A zona é servida por novos arruamentos, iluminação LED e fibra ótica, estando inserida num loteamento moderno que privilegia as áreas verdes e o distanciamento entre lotes, garantindo qualidade de vida futura aos moradores."
+      "Dispomos de uma seleção criteriosa de terrenos situados em localizações estratégicas por todo o país, todos com viabilidade de construção confirmada e prontos para o desenvolvimento de projetos residenciais ou de investimento.",
+      "Estes ativos destacam-se pela sua topografia regular e pela facilidade de licenciamento, garantindo uma implementação rápida e eficiente. Todas as infraestruturas básicas, como acessos, rede elétrica e saneamento, estão devidamente asseguradas.",
+      "Seja para a construção da sua casa de sonho ou para um projeto imobiliário de maior escala, o nosso portfólio de terrenos oferece a solidez e a transparência necessárias para um negócio seguro e de elevada rentabilidade."
     ],
     caracteristicas: [
-      "Topografia 100% plana facilitadora de obra",
-      "Infraestruturas completas (água, luz e saneamento)",
-      "Índice de construção favorável para moradia unifamiliar",
-      "Localização estratégica em zona de valorização crescente"
+      "Viabilidade de construção imediata",
+      "Infraestruturas completas disponíveis",
+      "Topografia favorável ao projeto",
+      "Localizações estratégicas em expansão"
     ],
     imagens: {
-      principal: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200",
+      principal: "/images/terreno-expansao-1.png",
       internas: [
-        "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&q=80&w=1200"
+        "/images/terreno-expansao-2.png",
+        "/images/terreno-expansao-3.png"
       ]
     },
     tags: ["construcao-imediata", "vista-desafogada", "topografia-plana", "investimento"]
