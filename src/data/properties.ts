@@ -208,9 +208,9 @@ export const properties: Property[] = [
     imagens: {
       principal: "/images/colonial-fachada.png",
       internas: [
-        "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1510129753123-097c5f87b328?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&q=80&w=1200"
+        "/images/sintra-colonial-interior.png",
+        "/images/sintra-colonial-interior-2.png",
+        "/images/sintra-colonial-interior-3.png"
       ]
     },
     tags: ["colonial", "sintra", "historico", "solar"]
