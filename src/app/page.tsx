@@ -9,6 +9,7 @@ import { Curadoria } from '@/components/Curadoria';
 import { ContactForm } from '@/components/ContactForm';
 import { FloatingActionHub } from '@/components/FloatingActionHub';
 import { AboutUs } from '@/components/AboutUs';
+import { Partnerships } from '@/components/Partnerships';
 import { PropertyModal } from '@/components/PropertyModal';
 import { Logo } from '@/components/Logo';
 import { Property, properties } from '@/data/properties';
@@ -81,6 +82,8 @@ export default function Home() {
       </section>
 
       <AboutUs />
+      
+      <Partnerships />
 
       {/* Wrapping Curadoria to handle clicks */}
       <div

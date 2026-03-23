@@ -32,6 +32,7 @@ export const Header = () => {
     { name: 'A Marca', href: '#a-marca' },
     { name: 'Sobre Nós', href: '#sobre-nos' },
     { name: 'A Curadoria', href: '#a-curadoria' },
+    { name: 'Parcerias', href: '#parcerias' },
     { name: 'Contacto Privado', href: '#contacto-privado' },
   ];
 
@@ -148,13 +149,6 @@ export const Header = () => {
                   </motion.a>
                 ))}
 
-                <motion.button
-                  variants={itemVariants}
-                  className="mt-10 px-10 py-5 border border-gold/50 text-gold font-serif text-2xl hover:bg-gold hover:text-forest transition-all rounded-sm tracking-wide will-change-transform antialiased [backface-visibility:hidden] transform-gpu"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Agendamento
-                </motion.button>
               </nav>
 
               <a
