@@ -66,8 +66,9 @@ export const properties: Property[] = [
     imagens: {
       principal: "/images/quinta.png",
       internas: [
-        "https://images.unsplash.com/photo-1516483642775-82ed8f79f902?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&q=80&w=1200"
+        "/images/quinta-douro-1.png",
+        "/images/quinta-douro-2.png",
+        "/images/quinta-douro-3.png"
       ]
     },
     tags: ["douro", "vinha", "historico", "investimento"]
