@@ -58,8 +58,10 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
                     className="object-cover group-hover:scale-105 transition-transform duration-700" 
                     priority
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <ZoomIn className="text-white drop-shadow-md" size={48} />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/5 lg:bg-black/0 lg:group-hover:bg-black/20 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-none">
+                    <div className="p-3 bg-black/20 lg:bg-transparent rounded-full backdrop-blur-sm lg:backdrop-blur-none border border-white/10 lg:border-none">
+                      <ZoomIn className="text-white drop-shadow-md" size={48} />
+                    </div>
                   </div>
                 </div>
                 
@@ -77,8 +79,10 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
                         sizes="(max-width: 768px) 100vw, 40vw"
                         className="object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" 
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
-                        <ZoomIn className="text-white drop-shadow-md" size={32} />
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/5 lg:bg-black/0 lg:group-hover:bg-black/20 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-none">
+                        <div className="p-2 bg-black/20 lg:bg-transparent rounded-full backdrop-blur-sm lg:backdrop-blur-none border border-white/10 lg:border-none">
+                          <ZoomIn className="text-white drop-shadow-md" size={32} />
+                        </div>
                       </div>
                     </div>
                   ))}
