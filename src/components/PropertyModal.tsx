@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -15,6 +15,26 @@ interface PropertyModalProps {
 export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps) => {
   const [fullScreenIndex, setFullScreenIndex] = useState<number | null>(null);
 
+  // Scroll Lock logic
+  useEffect(() => {
+    const isLocked = isOpen || fullScreenIndex !== null;
+    
+    if (isLocked) {
+      // Calculate scrollbar width to prevent layout jump
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+      document.body.style.paddingRight = '';
+    }
+
+    return () => {
+      document.body.classList.remove('modal-open');
+      document.body.style.paddingRight = '';
+    };
+  }, [isOpen, fullScreenIndex]);
+
   if (!property) return null;
 
   const allImages = [property.imagens.principal, ...property.imagens.internas];
@@ -28,8 +48,12 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-forest/90 backdrop-blur-xl p-4 md:p-10"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) onClose();
+          }}
         >
           <motion.div
+            onClick={(e) => e.stopPropagation()}
             initial={{ scale: 0.9, opacity: 0, y: 50 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 50 }}
@@ -182,6 +206,9 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[200] flex items-center justify-center bg-deep-black/95 backdrop-blur-md p-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setFullScreenIndex(null);
+          }}
         >
           {/* Close Button */}
           <button
