@@ -104,8 +104,10 @@ export const properties: Property[] = [
     imagens: {
       principal: "/images/vila.png",
       internas: [
-        "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200"
+        "/images/vila-litoral-1.png",
+        "/images/vila-litoral-2.png",
+        "/images/vila-litoral-3.png",
+        "/images/vila-litoral-4.png"
       ]
     },
     tags: ["vilas", "litoral", "mar", "conforto"]
