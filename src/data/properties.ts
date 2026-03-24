@@ -4,6 +4,7 @@ export interface Property {
   classe: 'Média' | 'Média Alta' | 'Investimento' | 'Elite' | 'Património' | 'Exclusivo';
   localizacao: string;
   titulo: string;
+  subtitulo: string;
   area: string;
   priority: number;
   descricao: string[];
@@ -17,11 +18,12 @@ export interface Property {
 
 export const properties: Property[] = [
   // {
-  //   id: "penthouse-liberdade",
+  //   id: "penthouse-contemporanea",
   //   tipo: "Apartamento",
   //   classe: "Elite",
   //   localizacao: "Avenida da Liberdade, Lisboa",
   //   titulo: "Penthouse Contemporânea",
+  //   subtitulo: "Exclusividade e vista panorâmica",
   //   area: "280m²",
   //   priority: 2,
   //   descricao: [
@@ -45,23 +47,27 @@ export const properties: Property[] = [
   //   tags: ["luxo", "vista-rio", "lisboa", "penthouse"]
   // },
   {
-    id: "quinta-douro",
-    tipo: "Quinta",
+    id: "quinta-historica",
+    tipo: "Quintas",
     classe: "Património",
-    localizacao: "Vale do Douro, Peso da Régua",
+    localizacao: "Portugal",
     titulo: "Quintas Históricas",
-    area: "45.000m²",
+    subtitulo: "Tradição, Património e Exclusividade",
+    area: "5.000m² - 50.000m²",
     priority: 5,
     descricao: [
-      "Localizada no coração da primeira região vinícola demarcada do mundo, esta quinta histórica combina tradição com o conforto contemporâneo.",
-      "Os vinhedos em socalcos produzem uvas de castas nobres, mantendo uma produção ativa e premiada de Vinho do Porto e Douro DOC.",
-      "A casa senhorial, fielmente restaurada, preserva os detalhes originais do século XVIII, oferecendo uma experiência autêntica e refinada."
+      "Apresentamos uma seleção de quintas históricas, verdadeiros refúgios de charme e autenticidade, onde o tempo se preserva na arquitetura, na paisagem e na identidade de cada propriedade.",
+      "Com origens que remontam a diferentes épocas, estas quintas destacam-se pelo seu valor patrimonial, integrando elementos únicos como casas senhoriais, detalhes arquitetónicos de época, capelas, adegas e extensos jardins ou terrenos envolventes.",
+      "Os espaços exteriores, muitas vezes marcados por árvores centenárias, vinhas, pomares ou áreas agrícolas, oferecem uma envolvente de rara beleza, ideal para quem procura tranquilidade, privacidade e ligação à natureza.",
+      "Cada propriedade possui características singulares, com potencial para habitação privada, projetos turísticos ou investimento diferenciado, preservando sempre o seu caráter histórico e a sua identidade original.",
+      "Se procura um imóvel com história, alma e um elevado potencial de valorização, estas quintas representam uma oportunidade única.",
+      "Para mais informações, estamos ao dispor."
     ],
     caracteristicas: [
-      "Produção vinícola própria e adega equipada",
-      "Frente de rio Douro navegável",
-      "Capela histórica restaurada",
-      "Potencial para projeto de enoturismo de luxo"
+      "Curadoria de Ativos Selecionados",
+      "Abordagem Personalizada ao Seu Perfil",
+      "Foco na Qualidade e Valorização",
+      "Acesso a Oportunidades Exclusivas"
     ],
     imagens: {
       principal: "/images/quinta.png",
@@ -71,26 +77,29 @@ export const properties: Property[] = [
         "/images/quinta-douro-3.png"
       ]
     },
-    tags: ["douro", "vinha", "historico", "investimento"]
+    tags: ["quinta", "historico", "patrimonio", "exclusividade"]
   },
   {
-    id: "vila-vilamoura",
-    tipo: "Moradia",
+    id: "vila-litoral",
+    tipo: "Vilas",
     classe: "Exclusivo",
-    localizacao: "Vilamoura, Algarve",
+    localizacao: "Portugal",
     titulo: "Vilas no Litoral",
-    area: "650m²",
+    subtitulo: "Qualidade de Vida Entre o Mar e o Conforto",
+    area: "180m² - 450m²",
     priority: 6,
     descricao: [
-      "Situada entre os melhores campos de golfe da Europa e a Marina de Vilamoura, esta vila representa a essência da vida no Algarve.",
-      "As áreas sociais fluem harmoniosamente para os jardins meticulosamente cuidados e para a piscina infinita que se funde com o horizonte.",
-      "Design de interiores assinado por estúdio de renome, focando na serenidade e no uso de materiais naturais da região."
+      "Apresentamos uma seleção de vilas localizadas em zonas costeiras privilegiadas, ideais para quem valoriza a proximidade ao mar, a tranquilidade e um estilo de vida mais leve e equilibrado.",
+      "Com diferentes tipologias e características, estas propriedades oferecem soluções que vão desde opções mais contemporâneas e funcionais até vilas com maior dimensão e espaços exteriores generosos, perfeitos para momentos de lazer e convívio.",
+      "A proximidade às praias, aliada a boas acessibilidades e à presença de comércio, restauração e serviços, proporciona uma vivência prática, sem abdicar do contacto diário com a natureza e o ambiente marítimo.",
+      "Seja para residência permanente, casa de férias ou investimento, estas vilas representam uma excelente oportunidade para desfrutar do melhor que o litoral tem para oferecer.",
+      "Para mais informações, estamos ao dispor."
     ],
     caracteristicas: [
-      "Primeira linha de golfe",
-      "Piscina infinita aquecida",
-      "Cozinha de verão e zona de BBQ profissional",
-      "Cave ampla com ginásio e cinema privativo"
+      "Curadoria de Ativos Selecionados",
+      "Abordagem Personalizada ao Seu Perfil",
+      "Foco na Qualidade e Valorização",
+      "Acesso a Oportunidades Exclusivas"
     ],
     imagens: {
       principal: "/images/vila.png",
@@ -99,26 +108,30 @@ export const properties: Property[] = [
         "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200"
       ]
     },
-    tags: ["algarve", "piscina", "golf", "marina"]
+    tags: ["vilas", "litoral", "mar", "conforto"]
   },
   {
-    id: "hotel-gaia",
-    tipo: "Hotel & SPA",
+    id: "hotel-spa",
+    tipo: "Hoteis & Spas",
     classe: "Investimento",
-    localizacao: "Vila Nova de Gaia, Portugal",
-    titulo: "Hotel & SPA Exclusivo com Vista Douro",
-    area: "3.500m²",
+    localizacao: "Portugal",
+    titulo: "Hotéis e Spas exclusivos",
+    subtitulo: "Sofisticação, bem-estar e investimento de excelência",
+    area: "1.500m² - 5.000m²",
     priority: 7,
     descricao: [
-      "Uma oportunidade estratégica de investimento no setor de hospitalidade em plena transformação nas margens do Douro.",
-      "O projeto contempla 45 suites exclusivas, um SPA de classe mundial focado em vinoterapia e um restaurante de assinatura com vista para a Ribeira do Porto.",
-      "Situado na zona histórica das caves de Vinho do Porto, garantindo um fluxo constante de turismo de alto rendimento durante todo o ano."
+      "Apresentamos uma seleção de hotéis e spas exclusivos, concebidos para proporcionar experiências únicas de conforto, requinte e bem-estar.",
+      "Estes empreendimentos distinguem-se pela sua identidade própria, combinando arquitetura cuidada, design elegante e uma oferta de serviços orientada para a excelência. Os espaços são pensados ao detalhe, criando ambientes que privilegiam o relaxamento, a privacidade e a experiência sensorial.",
+      "As unidades de alojamento, aliadas a áreas de spa, wellness e lazer, oferecem um conceito integrado que valoriza a tranquilidade e o equilíbrio, muitas vezes inserido em localizações de grande beleza natural ou em contextos urbanos de prestígio.",
+      "Com forte potencial no setor do turismo de qualidade, estes ativos representam oportunidades sólidas tanto para exploração hoteleira como para investimento, acompanhando a crescente procura por experiências diferenciadas e exclusivas.",
+      "Se procura um projeto que una rentabilidade, prestígio e conceito, teremos todo o gosto em apresentar-lhe as melhores oportunidades.",
+      "Para mais informações, estamos ao dispor."
     ],
     caracteristicas: [
-      "Licenciamento aprovado para hotel 5 estrelas",
-      "Vistas panorâmicas sobre o Porto e o Rio Douro",
-      "Área de SPA e Wellness com piscina interior",
-      "Localização prime em zona de regeneração urbana"
+      "Curadoria de Ativos Selecionados",
+      "Abordagem Personalizada ao Seu Perfil",
+      "Foco na Qualidade e Valorização",
+      "Acesso a Oportunidades Exclusivas"
     ],
     imagens: {
       principal: "/images/hotel.png",
@@ -127,26 +140,29 @@ export const properties: Property[] = [
         "/images/hotel-quarto.png"
       ]
     },
-    tags: ["hotel", "spa", "gaia", "investimento"]
+    tags: ["hotel", "spa", "investimento", "exclusividade"]
   },
   {
-    id: "apto-familia-matosinhos",
-    tipo: "Apartamento",
+    id: "apartamento-familia",
+    tipo: "Apartamentos",
     classe: "Média",
-    localizacao: "Matosinhos Sul, Porto",
-    titulo: "Apartamento Familiar com Varanda e Proximidade à Praia",
-    area: "145m²",
+    localizacao: "Portugal",
+    titulo: "Apartamentos Selecionados",
+    subtitulo: "Diversidade, qualidade e oportunidade",
+    area: "80m² - 250m²",
     priority: 1,
     descricao: [
-      "Situado no coração de Matosinhos Sul, este apartamento destaca-se pela sua planta funcional e pela excelente exposição solar. Ideal para famílias que procuram um estilo de vida prático, a curta distância de escolas, supermercados e da marginal marítima.",
-      "O imóvel foi recentemente renovado com foco no conforto térmico e acústico, apresentando janelas de vidro duplo e aquecimento central. A sala comum é ampla e estende-se para uma varanda generosa, perfeita para momentos de lazer ao final do dia.",
-      "A zona envolvente oferece uma rede completa de transportes públicos, incluindo estação de metro a 5 minutos a pé, facilitando o acesso ao centro do Porto e ao aeroporto, mantendo simultaneamente a tranquilidade de um bairro residencial."
+      "Apresentamos uma seleção de apartamentos com diferentes tipologias, localizações e características, pensados para responder às mais variadas necessidades e estilos de vida.",
+      "Dispomos de imóveis que vão desde soluções mais compactas e funcionais até apartamentos mais amplos e sofisticados, inseridos em zonas distintas, quer em áreas mais centrais e dinâmicas, quer em locais mais tranquilos e residenciais.",
+      "Cada imóvel apresenta características próprias, oferecendo diferentes opções ao nível de áreas, distribuição, exposição solar e envolvente, permitindo encontrar a solução mais adequada para habitação própria ou investimento.",
+      "Se procura um apartamento que se enquadre no seu perfil e nas suas expectativas, teremos todo o gosto em ajudá-lo a encontrar a opção certa.",
+      "Para mais informações, estamos ao dispor."
     ],
     caracteristicas: [
-      "Cozinha totalmente equipada com eletrodomésticos de classe A+",
-      "Dois lugares de garagem e arrecadação individual",
-      "Varanda privativa com orientação Sul-Poente",
-      "Proximidade a pé da Praia de Matosinhos e do Parque da Cidade"
+      "Curadoria de Ativos Selecionados",
+      "Abordagem Personalizada ao Seu Perfil",
+      "Foco na Qualidade e Valorização",
+      "Acesso a Oportunidades Exclusivas"
     ],
     imagens: {
       principal: "/images/matosinhos-facade.png",
@@ -156,26 +172,30 @@ export const properties: Property[] = [
         "/images/matosinhos-garagem.png"
       ]
     },
-    tags: ["garagem", "varanda", "elevador", "proximo-ao-metro"]
+    tags: ["apartamento", "qualidade", "investimento", "diversidade"]
   },
   {
-    id: "moradia-contemporanea-cascais",
-    tipo: "Moradia Geminada",
+    id: "moradia-contemporanea",
+    tipo: "Vivendas",
     classe: "Média Alta",
-    localizacao: "Bairro do Rosário, Cascais",
-    titulo: "Moradia Minimalista com Design de Autor e Acabamentos de Excelência",
-    area: "320m²",
+    localizacao: "Portugal",
+    titulo: "Vivendas Contemporâneas",
+    subtitulo: "Design, exclusividade e sofisticação",
+    area: "200m² - 500m²",
     priority: 4,
     descricao: [
-      "Esta moradia unifamiliar reflete o melhor da arquitetura contemporânea portuguesa, com linhas simples e grandes vãos envidraçados que fundem o interior com o jardim privativo. Localizada numa das zonas mais exclusivas de Cascais, garante privacidade e prestígio.",
-      "O design foca-se na fluidez dos espaços, apresentando uma zona social em open-space com pé-direito duplo que realça a luminosidade natural. Os materiais selecionados, desde a pedra natural ao soalho em madeira de carvalho, conferem um toque de luxo discreto.",
-      "Equipada com as mais recentes tecnologias de domótica e eficiência energética, a propriedade inclui um sistema de climatização invisível e painéis solares integrados, assegurando um impacto ambiental reduzido sem comprometer o conforto sofisticado."
+      "Apresentamos uma seleção de moradias de arquitetura contemporânea, marcadas por um design minimalista e pela assinatura de autores que privilegiam a estética, a funcionalidade e a harmonia com o espaço envolvente.",
+      "Com linhas depuradas e uma linguagem arquitetónica distinta, estes imóveis destacam-se pela atenção ao detalhe e pela escolha criteriosa de materiais, traduzida em acabamentos de excelência e soluções construtivas de elevada qualidade.",
+      "Os espaços interiores foram concebidos para proporcionar conforto, fluidez e luminosidade, com uma forte ligação ao exterior, onde jardins, terraços ou zonas de lazer complementam a experiência de habitar com elegância e discrição.",
+      "Inseridas em localizações selecionadas, estas moradias oferecem privacidade e tranquilidade, sem abdicar da proximidade a serviços essenciais e bons acessos.",
+      "Ideais para quem valoriza arquitetura, exclusividade e qualidade de vida, estas propriedades representam uma oportunidade única para viver com distinção ou investir com segurança.",
+      "Para mais informações, estamos ao dispor."
     ],
     caracteristicas: [
-      "Suite Master com closet e terraço privativo",
-      "Piscina de transbordo com tratamento a sal",
-      "Sistema de domótica avançado (luzes, som e segurança)",
-      "Certificação energética A+ e acabamentos de alta gama"
+      "Curadoria de Ativos Selecionados",
+      "Abordagem Personalizada ao Seu Perfil",
+      "Foco na Qualidade e Valorização",
+      "Acesso a Oportunidades Exclusivas"
     ],
     imagens: {
       principal: "/images/cascais-jardim.png",
@@ -184,26 +204,30 @@ export const properties: Property[] = [
         "/images/cascais-garagem.png"
       ]
     },
-    tags: ["piscina", "domotica", "suite", "jardim-privativo"]
+    tags: ["moradia", "design", "exclusividade", "sofisticação"]
   },
   {
-    id: "moradia-colonial-sintra",
-    tipo: "Moradia",
+    id: "moradia-tradicional",
+    tipo: "Moradias",
     classe: "Património",
-    localizacao: "Colares, Sintra",
-    titulo: "Moradia de Linhas Coloniais com Jardins Centenários",
-    area: "420m²",
+    localizacao: "Portugal",
+    titulo: "Moradia Tradicional",
+    subtitulo: "Espaço, charme e qualidade de vida",
+    area: "150m² - 600m²",
     priority: 3,
     descricao: [
-      "Um exemplar magnífico da arquitetura luso-brasileira de finais do século XIX, este solar em Colares transporta-nos para uma era de elegância e sofisticação tropical. A moradia destaca-se pelos seus pés-direitos generosos e pelas janelas de sacada que inundam os interiores de luz.",
-      "O restauro cuidadoso preservou os azulejos originais pintados à mão e os estuques ornamentados, integrando discretamente o conforto moderno. A sala principal, de proporções imperiais, abre-se para uma varanda corrida com vista sobre as matas da Serra de Sintra.",
-      "Inserida num lote com jardins maduros repletos de espécies exóticas, camélias e buganvílias, a propriedade oferece uma privacidade total num dos microclimas mais frescos e prestigiados de Portugal, a poucos minutos das praias de Cascais."
+      "Apresentamos uma seleção de moradias com características distintas, pensadas para responder a diferentes estilos de vida e preferências.",
+      "Desde moradias de linhas mais tradicionais e coloniais, algumas inseridas em terrenos amplos com jardins centenários e uma envolvente de grande charme, até opções mais compactas, modernas e funcionais, ideais para quem privilegia praticidade sem abdicar do conforto.",
+      "Os imóveis distribuem-se por localizações variadas, permitindo escolher entre ambientes mais tranquilos e reservados ou zonas com maior proximidade a serviços, comércio e acessos principais.",
+      "Cada moradia apresenta a sua identidade própria, seja pelo traço arquitetónico, pela dimensão dos espaços exteriores ou pela forma como se integra na paisagem envolvente, oferecendo soluções tanto para habitação própria como para investimento.",
+      "Se procura uma moradia que combine personalidade, conforto e potencial de valorização, teremos todo o gosto em ajudá-lo a encontrar a opção certa.",
+      "Para mais informações, estamos ao dispor."
     ],
     caracteristicas: [
-      "Jardins de linhas românticas com espécies centenárias",
-      "Pinturas murais e azulejos de época preservados",
-      "Pé-direito de 4 metros nas áreas sociais",
-      "Lote de 2.500m² com total privacidade e vista serra"
+      "Curadoria de Ativos Selecionados",
+      "Abordagem Personalizada ao Seu Perfil",
+      "Foco na Qualidade e Valorização",
+      "Acesso a Oportunidades Exclusivas"
     ],
     imagens: {
       principal: "/images/colonial-fachada.png",
@@ -213,26 +237,30 @@ export const properties: Property[] = [
         "/images/sintra-colonial-interior-3.png"
       ]
     },
-    tags: ["colonial", "sintra", "historico", "solar"]
+    tags: ["moradia", "charme", "qualidade", "investimento"]
   },
   {
-    id: "terreno-expansao-braga",
-    tipo: "Terreno",
+    id: "terreno-viabilidade",
+    tipo: "Terrenos",
     classe: "Investimento",
     localizacao: "Portugal",
-    titulo: "Terrenos com Viabilidade de Construção e Elevado Potencial",
-    area: "600m² - 5.000m²",
+    titulo: "Terrenos com viabilidade de construção",
+    subtitulo: "Potencial, segurança e valorização",
+    area: "1.000m² - 25.000m²",
     priority: 8,
     descricao: [
-      "Dispomos de uma seleção criteriosa de terrenos situados em localizações estratégicas por todo o país, todos com viabilidade de construção confirmada e prontos para o desenvolvimento de projetos residenciais ou de investimento.",
-      "Estes ativos destacam-se pela sua topografia regular e pela facilidade de licenciamento, garantindo uma implementação rápida e eficiente. Todas as infraestruturas básicas, como acessos, rede elétrica e saneamento, estão devidamente asseguradas.",
-      "Seja para a construção da sua casa de sonho ou para um projeto imobiliário de maior escala, o nosso portfólio de terrenos oferece a solidez e a transparência necessárias para um negócio seguro e de elevada rentabilidade."
+      "Apresentamos uma seleção de terrenos com elevado potencial de valorização, ideais para desenvolvimento imobiliário ou construction personalizada.",
+      "Disponibilizamos opções com diferentes enquadramentos urbanísticos, incluindo terrenos com projetos aprovados e outros com Pedido de Informação Prévia (PIP) favorável, oferecendo maior segurança e previsibilidade no processo de desenvolvimento.",
+      "Localizados em zonas estratégicas, estes terrenos beneficiam de boas acessibilidades, proximidade a infraestruturas e enquadramento urbano ou paisagístico que potencia a valorização do investimento.",
+      "Com capacidades construtivas distintas, adaptam-se a diversos tipos de projetos, desde moradias unifamiliares até empreendimentos de maior escala, permitindo ao investidor ou particular concretizar soluções ajustadas aos seus objetivos.",
+      "Se procura um terreno com viabilidade clara e forte potencial de retorno, teremos todo o gosto em apresentar-lhe as melhores oportunidades.",
+      "Para mais informações, estamos ao dispor."
     ],
     caracteristicas: [
-      "Viabilidade de construção imediata",
-      "Infraestruturas completas disponíveis",
-      "Topografia favorável ao projeto",
-      "Localizações estratégicas em expansão"
+      "Curadoria de Ativos Selecionados",
+      "Abordagem Personalizada ao Seu Perfil",
+      "Foco na Qualidade e Valorização",
+      "Acesso a Oportunidades Exclusivas"
     ],
     imagens: {
       principal: "/images/terreno-expansao-1.png",
@@ -241,6 +269,6 @@ export const properties: Property[] = [
         "/images/terreno-expansao-3.png"
       ]
     },
-    tags: ["construcao-imediata", "vista-desafogada", "topografia-plana", "investimento"]
+    tags: ["terreno", "construcao", "investimento", "viabilidade"]
   }
 ];
