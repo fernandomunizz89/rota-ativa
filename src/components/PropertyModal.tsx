@@ -35,6 +35,34 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
     };
   }, [isOpen, fullScreenIndex]);
 
+  const [formData, setFormData] = useState({ nome: '', email: '' });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!property) return;
+
+    const tipoLower = property.tipo.toLowerCase();
+    const hasNome = formData.nome.trim() !== '';
+    const hasEmail = formData.email.trim() !== '';
+    
+    let message = '';
+    
+    if (hasNome) {
+      message += `Olá, o meu nome é ${formData.nome}.\n`;
+    } else {
+      message += `Olá.\n`;
+    }
+    
+    message += `Entro em contacto através do site rotativa.pt e gostaria de obter mais informações sobre o vosso serviço de procura personalizada de imóveis do tipo ${tipoLower}.\n`;
+    
+    if (hasEmail) {
+      message += `O meu endereço de email para contacto é ${formData.email}.`;
+    }
+    
+    const whatsappUrl = `https://wa.me/351936765705?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   if (!property) return null;
 
   const allImages = [property.imagens.principal, ...property.imagens.internas];
@@ -129,9 +157,12 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
                 <span className="text-gold font-sans text-xs uppercase tracking-[0.4em] mb-4 block">
                   {property.tipo} | {property.classe}
                 </span>
-                <h2 className="font-serif text-4xl mb-8 leading-tight">
+                <h2 className="font-serif text-4xl mb-2 leading-tight">
                   {property.titulo}
                 </h2>
+                <div className="text-gold font-sans text-xl italic mb-10 leading-relaxed">
+                  {property.subtitulo}
+                </div>
                 
                 <div className="flex gap-4 mb-8 flex-wrap">
                   {property.tags.map(tag => (
@@ -141,20 +172,7 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
                   ))}
                 </div>
 
-                <div className="space-y-4 mb-10 font-sans text-off-white/80 border-l-2 border-gold/30 pl-6">
-                  <p className="flex justify-between">
-                    <span className="text-off-white/40">Localização</span>
-                    <span>{property.localizacao}</span>
-                  </p>
-                  <p className="flex justify-between">
-                    <span className="text-off-white/40">Área Total</span>
-                    <span>{property.area}</span>
-                  </p>
-                  <p className="flex justify-between text-gold font-semibold pt-2">
-                    <span>Preço</span>
-                    <span>Sob Consulta</span>
-                  </p>
-                </div>
+
 
                 <div className="space-y-6 mb-12 text-off-white/70 leading-relaxed">
                   {property.descricao.map((para, idx) => (
@@ -163,7 +181,7 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
                 </div>
 
                 <div className="mb-12">
-                  <h4 className="text-gold font-sans text-xs uppercase tracking-[0.2em] mb-6">Destaques do Imóvel</h4>
+                  <h4 className="text-gold font-sans text-xs uppercase tracking-[0.2em] mb-6">Diferenciais da Seleção</h4>
                   <ul className="space-y-3">
                     {property.caracteristicas.map((feat, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-sm text-off-white/80">
@@ -176,20 +194,27 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
               </div>
 
               <div className="mt-auto border-t border-gold/20 pt-12">
-                <h3 className="font-serif text-2xl mb-6 text-gold">Pedido de Visita Privada</h3>
-                <form className="space-y-6">
+                <h3 className="font-serif text-2xl mb-6 text-gold">Pedir Informações</h3>
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <input
                     type="text"
                     placeholder="Nome Completo"
+                    value={formData.nome}
+                    onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                     className="w-full bg-transparent border-b border-off-white/20 py-3 outline-none focus:border-gold"
                   />
                   <input
-                    type="tel"
-                    placeholder="Telefone"
+                    type="email"
+                    placeholder="E-mail"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-transparent border-b border-off-white/20 py-3 outline-none focus:border-gold"
                   />
-                  <button className="w-full py-4 bg-gold text-forest font-bold uppercase tracking-widest text-sm hover:bg-off-white transition-colors">
-                    Solicitar Agendamento
+                  <button 
+                    type="submit"
+                    className="w-full py-4 bg-gold text-forest font-bold uppercase tracking-widest text-sm hover:bg-off-white transition-colors"
+                  >
+                    Enviar Pedido
                   </button>
                 </form>
               </div>
