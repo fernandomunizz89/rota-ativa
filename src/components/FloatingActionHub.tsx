@@ -37,6 +37,17 @@ export const FloatingActionHub = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleScroll = () => {
+      setIsOpen(false);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isOpen]);
+
   return (
     <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4 font-sans">
       <AnimatePresence>
