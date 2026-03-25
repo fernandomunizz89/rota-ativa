@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative min-h-[100svh] w-full flex flex-col items-center justify-center overflow-hidden pt-24 pb-20 lg:pt-32 lg:pb-24">
+    <section id="home" className="relative min-h-dynamic w-full flex flex-col items-center justify-center overflow-hidden pt-24 pb-20 lg:pt-32 lg:pb-24">
       {/* Background Image / Video Fallback */}
       <div className="absolute inset-0 z-0">
         <motion.div

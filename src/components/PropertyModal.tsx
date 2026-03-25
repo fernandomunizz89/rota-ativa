@@ -86,7 +86,7 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 50 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="relative w-full max-w-7xl max-h-[90vh] bg-off-white dark:bg-deep-black overflow-hidden flex flex-col md:flex-row shadow-2xl will-change-transform"
+            className="relative w-full max-w-7xl max-h-90-dynamic bg-off-white dark:bg-deep-black overflow-hidden flex flex-col md:flex-row shadow-2xl"
           >
             <button
               onClick={onClose}
@@ -96,7 +96,7 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             </button>
 
             {/* Massive Gallery Part */}
-            <div className="flex-none h-[40vh] md:flex-[2] md:h-auto overflow-y-auto custom-scrollbar bg-off-white dark:bg-deep-black">
+            <div className="flex-none h-40-dynamic md:flex-[2] md:h-auto overflow-y-auto custom-scrollbar bg-off-white dark:bg-deep-black">
               <div className="grid grid-cols-1 gap-4 p-4">
                 <div 
                   className="relative aspect-video w-full overflow-hidden cursor-pointer group"
@@ -230,7 +230,7 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-deep-black/95 backdrop-blur-md p-4"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-deep-black/95 backdrop-blur-md p-4 h-100-dynamic"
           onClick={(e) => {
             if (e.target === e.currentTarget) setFullScreenIndex(null);
           }}
@@ -274,7 +274,7 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ type: "spring", stiffness: 80, damping: 20, mass: 1 }}
-            className="relative w-full h-full max-w-7xl max-h-[90vh] cursor-grab active:cursor-grabbing will-change-transform"
+            className="relative w-full h-full max-w-7xl max-h-90-dynamic cursor-grab active:cursor-grabbing"
             drag="x"
             dragMomentum={false}
             onDragEnd={(e, { offset, velocity }) => {

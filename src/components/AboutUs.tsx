@@ -116,11 +116,11 @@ export const AboutUs = () => {
           {commitments.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-8 border border-forest/5 hover:border-gold/30 transition-all duration-300 group will-change-transform"
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="bg-white p-8 border border-forest/5 hover:border-gold/30 transition-all duration-300 group will-change-transform [backface-visibility:hidden] transform-gpu"
             >
               <div className="w-12 h-12 bg-forest text-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 will-change-transform">
                 {item.icon}

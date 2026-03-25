@@ -78,7 +78,7 @@ export const ContactForm = () => {
           transition={{ duration: 0.8 }}
           className="flex-1 w-full max-w-xl bg-deep-black p-8 lg:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-gold/10 relative z-10 will-change-transform [@media(max-height:800px)]:p-8"
         >
-          <form ref={formRef} onSubmit={sendEmail} className="space-y-12">
+          <form ref={formRef} onSubmit={sendEmail} className="space-y-12" suppressHydrationWarning>
             {[
               { id: 'user_name', label: 'Nome Completo', type: 'text' },
               { id: 'user_email', label: 'E-mail', type: 'email' },
@@ -92,6 +92,7 @@ export const ContactForm = () => {
                   className="w-full bg-transparent border-b border-off-white/20 py-4 outline-none focus:border-gold transition-colors duration-300 peer placeholder-transparent"
                   placeholder={field.label}
                   id={field.id}
+                  suppressHydrationWarning
                 />
                 <label
                   htmlFor={field.id}
@@ -110,6 +111,7 @@ export const ContactForm = () => {
                 className="w-full bg-transparent border-b border-off-white/20 py-4 outline-none focus:border-gold transition-colors duration-300 peer placeholder-transparent resize-none"
                 placeholder="Mensagem"
                 id="message"
+                suppressHydrationWarning
               />
               <label
                 htmlFor="message"

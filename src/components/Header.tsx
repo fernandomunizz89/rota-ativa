@@ -8,6 +8,21 @@ export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isMobile = false) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    const scroll = () => target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (isMobile) {
+      setIsOpen(false);
+      setTimeout(scroll, 380);
+    } else {
+      scroll();
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -94,6 +109,7 @@ export const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-off-white hover:text-gold transition-colors font-sans text-xs xl:text-sm uppercase tracking-widest [@media(max-height:800px)]:text-xs"
               >
                 {item.name}
@@ -122,8 +138,9 @@ export const Header = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-deep-black/60 backdrop-blur-md z-[55] lg:hidden will-change-opacity"
+              className="fixed inset-0 bg-deep-black/70 z-[55] lg:hidden [backface-visibility:hidden]"
             />
 
             <motion.div
@@ -131,7 +148,7 @@ export const Header = () => {
               animate="opened"
               exit="closed"
               variants={menuVariants}
-              className="fixed top-0 right-0 h-[100dvh] z-[60] w-full md:w-[450px] lg:hidden bg-forest/95 flex flex-col items-center justify-center overflow-hidden shadow-2xl border-l border-gold/10 will-change-transform"
+              className="fixed top-0 right-0 h-100-dynamic z-[60] w-full md:w-[450px] lg:hidden bg-forest flex flex-col items-center justify-center overflow-hidden shadow-2xl border-l border-gold/10 will-change-transform [backface-visibility:hidden] transform-gpu isolate"
             >
               {/* Decorative accent layer instead of heavy blur */}
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent -z-10" />
@@ -142,7 +159,7 @@ export const Header = () => {
                     key={item.name}
                     variants={itemVariants}
                     href={item.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => handleNavClick(e, item.href, true)}
                     className="text-gold font-serif text-5xl hover:opacity-70 transition-all tracking-tight will-change-transform antialiased [backface-visibility:hidden] transform-gpu"
                   >
                     {item.name}
