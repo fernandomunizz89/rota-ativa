@@ -30,7 +30,10 @@ export const ContactForm = () => {
         throw new Error('Erro ao enviar mensagem.');
       }
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      const msg = error && typeof error === 'object'
+        ? JSON.stringify(error)
+        : String(error);
+      console.error('EmailJS Error:', msg);
       setStatus('error');
       setTimeout(() => setStatus('idle'), 5000);
     }
