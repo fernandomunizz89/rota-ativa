@@ -86,73 +86,76 @@ export const PropertyModal = ({ isOpen, onClose, property }: PropertyModalProps)
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 50 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="relative w-full max-w-7xl max-h-90-dynamic bg-off-white dark:bg-deep-black overflow-hidden flex flex-col md:flex-row shadow-2xl"
+            className="relative w-full max-w-7xl h-[96vh] md:h-[90vh] bg-off-white overflow-hidden flex flex-col md:flex-row shadow-2xl"
           >
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 z-10 p-2 bg-gold text-forest rounded-full hover:bg-off-white transition-colors"
+              className="absolute top-4 right-4 md:top-6 md:right-6 z-50 p-2 bg-gold text-forest rounded-full hover:bg-off-white transition-colors"
             >
               <X size={24} />
             </button>
 
             {/* Massive Gallery Part */}
-            <div className="flex-none h-40-dynamic md:flex-[2] md:h-auto overflow-y-auto custom-scrollbar bg-off-white dark:bg-deep-black">
-              <div className="grid grid-cols-1 gap-4 p-4">
-                <div 
-                  className="relative aspect-video w-full overflow-hidden cursor-pointer group"
-                  onClick={() => setFullScreenIndex(0)}
-                >
-                  <Image 
-                    src={property.imagens.principal} 
-                    alt={`${property.titulo} em ${property.localizacao} - Rota Ativa | Mediação Imobiliária`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 80vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700" 
-                    priority
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/5 lg:bg-black/0 lg:group-hover:bg-black/20 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-none">
-                    <div className="p-3 bg-black/20 lg:bg-transparent rounded-full backdrop-blur-sm lg:backdrop-blur-none border border-white/10 lg:border-none">
-                      <ZoomIn className="text-white drop-shadow-md" size={48} />
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {property.imagens.internas.map((img, idx) => (
-                    <div 
-                      key={idx} 
-                      className="relative h-64 w-full overflow-hidden cursor-pointer group"
-                      onClick={() => setFullScreenIndex(idx + 1)}
-                    >
-                      <Image 
-                        src={img} 
-                        alt={`${property.titulo} - Detalhe ${idx + 1}`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 40vw"
-                        className="object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" 
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/5 lg:bg-black/0 lg:group-hover:bg-black/20 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-none">
-                        <div className="p-2 bg-black/20 lg:bg-transparent rounded-full backdrop-blur-sm lg:backdrop-blur-none border border-white/10 lg:border-none">
-                          <ZoomIn className="text-white drop-shadow-md" size={32} />
-                        </div>
+            <div className="h-[60%] flex-none md:flex-[2] md:h-full flex flex-col bg-off-white overflow-hidden relative">
+              <div className="flex-1 overflow-y-auto custom-scrollbar">
+                <div className="sticky top-0 z-10 h-8 w-full bg-off-white pointer-events-none" />
+                <div className="grid grid-cols-1 gap-4 px-6 pt-0 pb-0">
+                  <div 
+                    className="relative aspect-[2.4/1] w-full overflow-hidden cursor-pointer group"
+                    onClick={() => setFullScreenIndex(0)}
+                  >
+                    <Image 
+                      src={property.imagens.principal} 
+                      alt={`${property.titulo} em ${property.localizacao} - Rota Ativa | Mediação Imobiliária`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 80vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                      priority
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/5 lg:bg-black/0 lg:group-hover:bg-black/20 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-none">
+                      <div className="p-3 bg-black/20 lg:bg-transparent rounded-full backdrop-blur-sm lg:backdrop-blur-none border border-white/10 lg:border-none">
+                        <ZoomIn className="text-white drop-shadow-md" size={48} />
                       </div>
                     </div>
-                  ))}
+                  </div>
+                  
+                  <div className={`grid gap-2 ${property.imagens.internas.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
+                    {property.imagens.internas.map((img, idx) => (
+                      <div 
+                        key={idx} 
+                        className="relative h-96 w-full overflow-hidden cursor-pointer group"
+                        onClick={() => setFullScreenIndex(idx + 1)}
+                      >
+                        <Image 
+                          src={img} 
+                          alt={`${property.titulo} - Detalhe ${idx + 1}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 40vw"
+                          className="object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform" 
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/5 lg:bg-black/0 lg:group-hover:bg-black/20 transition-all opacity-100 lg:opacity-0 lg:group-hover:opacity-100 pointer-events-none">
+                          <div className="p-2 bg-black/20 lg:bg-transparent rounded-full backdrop-blur-sm lg:backdrop-blur-none border border-white/10 lg:border-none">
+                            <ZoomIn className="text-white drop-shadow-md" size={32} />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+              </div>
 
-                <div className="bg-forest/5 p-12 border border-gold/10 flex flex-col items-center justify-center text-center">
-                  <span className="text-gold font-serif italic text-lg mb-4">
-                    Solicite o Dossier Completo
-                  </span>
-                  <p className="text-forest/60 dark:text-off-white/40 text-sm max-w-md">
-                    Temos documentação técnica detalhada, plantas e fotografias adicionais de alta resolução disponíveis sob consulta direta.
-                  </p>
-                </div>
+              <div className="mt-2 md:mt-4 bg-forest/5 py-4 px-6 border border-gold/10 flex flex-col items-center justify-center text-center">
+                <span className="text-gold font-serif italic text-lg mb-4">
+                  Solicite um estudo personalizado.
+                </span>
+                <p className="text-forest/60 text-sm max-w-md">
+                  Temos informações técnicas e análises de mercado detalhadas para o seu perfil de investimento.
+                </p>
               </div>
             </div>
 
             {/* Details & Form Part */}
-            <div className="flex-1 p-12 overflow-y-auto bg-forest text-off-white flex flex-col">
+            <div className="h-[40%] md:h-full md:flex-1 p-12 overflow-y-auto bg-forest text-off-white flex flex-col">
               <div className="mb-12">
                 <span className="text-gold font-sans text-xs uppercase tracking-[0.4em] mb-4 block">
                   {property.tipo} | {property.classe}
