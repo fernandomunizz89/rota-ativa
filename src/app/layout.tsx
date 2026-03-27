@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 
@@ -55,6 +56,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col relative">
         <JsonLd />
         {children}
+        <Analytics />
       </body>
     </html>
   );
