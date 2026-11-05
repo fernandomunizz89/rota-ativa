@@ -4,6 +4,24 @@ import React, { useState, useRef, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 
+type EmailJsConfig = { serviceId: string; templateId: string; publicKey: string };
+
+// Each var must be read with a literal `process.env.NEXT_PUBLIC_*` access so Next inlines it at build time.
+const getEmailJsConfig = (): EmailJsConfig => {
+  const config = {
+    serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+    templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+    publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+  };
+  const missing = Object.entries(config)
+    .filter(([, value]) => !value)
+    .map(([key]) => key);
+  if (missing.length > 0) {
+    throw new Error(`Missing EmailJS env vars at build time: ${missing.join(', ')}`);
+  }
+  return config as EmailJsConfig;
+};
+
 export const ContactForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -15,12 +33,8 @@ export const ContactForm = () => {
     setStatus('loading');
 
     try {
-      const result = await emailjs.sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-        formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
-      );
+      const { serviceId, templateId, publicKey } = getEmailJsConfig();
+      const result = await emailjs.sendForm(serviceId, templateId, formRef.current, publicKey);
 
       if (result.text === 'OK') {
         setStatus('success');
@@ -30,9 +44,11 @@ export const ContactForm = () => {
         throw new Error('Erro ao enviar mensagem.');
       }
     } catch (error) {
-      const msg = error && typeof error === 'object'
-        ? JSON.stringify(error)
-        : String(error);
+      const msg = error instanceof Error
+        ? error.message
+        : error && typeof error === 'object'
+          ? JSON.stringify(error)
+          : String(error);
       console.error('EmailJS Error:', msg);
       setStatus('error');
       setTimeout(() => setStatus('idle'), 5000);
